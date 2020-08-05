@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('teachers/index', 'TeacherController@index');
+Route::get('teachers/create', 'TeacherController@create')->name('teachercreate');
+Route::post('teachers/create', 'TeacherController@store')->name('create');
+Route::get('teachers/edit/{id}', 'TeacherController@edit')->name('teacheredit');
+Route::post('teachers/edit/{id}', 'TeacherController@update');
+Route::get('teachers/delete/{id}', 'TeacherController@delete')->name('teacherdelete');
