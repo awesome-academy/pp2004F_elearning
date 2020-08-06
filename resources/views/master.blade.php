@@ -181,8 +181,12 @@
                                             <li><a href="admission.html">Admission</a></li>
 											<li><a href="error.html">404 Error</a></li>
 											<li><a href="faq.html">FAQ</a></li>
-											<li><a href="login.html">Login</a></li>
-											<li><a href="register.html">Register</a></li>
+                                            @if(Auth::check())
+                                            <li><a href="/users/logout">Logout</a></li>
+                                            @else
+											<li><a href="/users/register">Register</a></li>
+											<li><a href="/users/login">Login</a></li>
+                                            @endif
 										</ul>
 									</li>
 									
