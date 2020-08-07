@@ -13,4 +13,10 @@ yarn-error.log
 .idea/encodings.xml
 .idea/php.xml
 .idea/vcs.xml
-.idea
+/.idea/*
+/public/admin/images/avatars/*
+/public/admin/images/logo/*
+/public/admin/images/others/*
+/public/images/*
+/public/assets/img/*
+
