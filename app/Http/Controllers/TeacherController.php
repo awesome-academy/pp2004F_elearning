@@ -20,14 +20,20 @@ class TeacherController extends Controller
 
     public function store(Request $request)
     {
-        $teacher = new Teacher(array(
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'phone' => $request->get('phone'),
-            'about' => $request->get('about'),
-        ));
+        $teacher = new Teacher;
+        $teacher->name = $request->get('name');
+        $teacher->email = $request->get('email');
+        $teacher->phone = $request->get('phone');
+        $teacher->about = $request->get('about');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->getClientOriginalExtension();
+            $name = time() . "." . $path;
+            $image->move('images', $name);
+            $teacher->image = $name;
+        }
         $teacher->save();
-        return redirect('teachers/index');
+        return redirect()->route('teachers-index');
     }
 
     public function edit($id)
@@ -38,20 +44,27 @@ class TeacherController extends Controller
 
     public function update(Request $request, $id)
     {
-        $teacher = Teacher::whereId($id)->firstOrFail();
+        $teacher = Teacher::find($id);
         $teacher->name = $request->get('name');
         $teacher->email = $request->get('email');
         $teacher->phone = $request->get('phone');
         $teacher->about = $request->get('about');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->getClientOriginalExtension();
+            $name = time() . "." . $path;
+            $image->move('images', $name);
+            $teacher->image = $name;
+        }
         $teacher->save();
-        return redirect('teachers/index');
+        return redirect('teachers');
     }
 
     public function delete($id)
     {
-        $teacher = Teacher::whereId($id)->firstOrFail();
+        $teacher = Teacher::whereId($id);
         $teacher->delete();
-        return redirect('teachers/index');
+        return redirect('teachers');
     }
 
 }

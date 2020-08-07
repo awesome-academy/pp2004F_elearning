@@ -19,7 +19,7 @@ class CreateTeachersTable extends Migration
             $table->string('email', 100)->unique();
             $table->string('phone', 50);
             $table->text('about');
-            $table->string('image', 100)->nullable();
+            $table->text('image');
             $table->timestamps();
         });
     }

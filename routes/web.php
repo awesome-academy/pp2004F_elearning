@@ -17,11 +17,11 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('teachers', 'TeacherController@index');
+Route::get('teachers', 'TeacherController@index')->name('teachers-index');
 Route::get('teachers/create', 'TeacherController@create')->name('teachercreate');
 Route::post('teachers/create', 'TeacherController@store')->name('create');
 Route::get('teachers/edit/{id}', 'TeacherController@edit')->name('teacheredit');
-Route::post('teachers/edit/{id}', 'TeacherController@update');
+Route::post('teachers/update/{id}', 'TeacherController@update')->name('teacherupdate');
 Route::get('teachers/delete/{id}', 'TeacherController@delete')->name('teacherdelete');
 Auth::routes();
 
@@ -40,3 +40,5 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 
     Route::get('users/{id?}/edit', 'UsersController@edit');
     Route::post('users/{id?}/edit', 'UsersController@update');
 });
+
+Route::resource('courses', 'Admin\CoursesController');
