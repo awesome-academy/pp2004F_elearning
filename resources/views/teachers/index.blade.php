@@ -1,31 +1,59 @@
-@extends('master')
-
+@extends('admin.layout.master')
+@section('title', 'teacher')
 @section('content')
- <!-- Start Teacher Area -->
- <section class="teacher-area ptb-100">
-            <div class="container">
-                @foreach($teachers as $teacher)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-teacher">
-                            <img src="assets/img/teacher-six.jpg" alt="teacher">
-                            
-                            <div class="teacher-content">
-                                <h3><a href="#">{!! $teacher->name !!}</a></h3>
-                                <span>{!! $teacher->email !!}</span>
-                                
-                                <h4><a href={{route("teacheredit", ['id'=>$teacher->id])}}>View Profile <i class="icofont-long-arrow-right"></i></a></h4>
-                                <ul>
-                                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                                    <li><a href="#"><i class="icofont-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="icofont-instagram"></i></a></li>
-                                </ul>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-overflow">
+                <table id="dt-opt" class="table table-hover table-xl">
+                    <thead>
+                    <tr>
+                        <th>
+                            <div class="checkbox p-0">
+                                <input id="selectable1" type="checkbox" class="checkAll" name="checkAll">
+                                <label for="selectable1"></label>
                             </div>
-                        </div>
-                    </div>
-                @endforeach
+                        </th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Image</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($teachers as $teacher)
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <input id="selectable2" type="checkbox">
+                                    <label for="selectable2"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="list-media">
+                                    <div class="list-item">
+                                        <span class="title">{{$teacher->name}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{$teacher->phone }}</td>
+                            <td>{{$teacher->email }}</td>
+                            <td><img src="{{ url('images/'.$teacher->image) }}" alt=""
+                                     style="width:50px;height:50px;"></td>
+                            <td class="text-center font-size-18">
+                                <form action="{{route("teacherdelete",$teacher->id)}}" method="post">
+                                    {{ csrf_field() }}
+                                    @method('GET')
+                                    <a href="{{route('teacheredit', $teacher->id)}}" class="text-gray m-r-15"><i
+                                                class="ti-pencil"></i></a>
+                                    <button class="text-gray btn-none"><i class="ti-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
-</section>
-<!-- End Teacher Area -->
-<a class="btn btn-primary" href={{route("teachercreate")}} role="button">Create</a>
+        </div>
+    </div>
 @endsection

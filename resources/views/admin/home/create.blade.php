@@ -97,8 +97,3 @@
         </div>
     </div>
 @endsection
-
-<script>
-    // Default date and time picker
-    $('#datetimepicker-default').datetimepicker();
-</script>
