@@ -10,8 +10,8 @@ class Category extends Model
         'name',
     ];
 
-    public function course()
+    public function courses()
     {
-        $this->hasMany('App\Models\Course');
+        return $this->belongsToMany('App\Models\Course');
     }
 }

@@ -17,10 +17,9 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->longText('description');
-            $table->text('image');
-            $table->integer('teacher_id');
-            $table->integer('category_id');
-            $table->smallInteger('status');
+            $table->text('image')->nullable();
+            $table->integer('teacher_id')->nullable();
+            $table->smallInteger('status')->nullable();
             $table->timestamps();
         });
     }
