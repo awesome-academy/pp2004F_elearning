@@ -20,7 +20,7 @@ class Manager
             return redirect('users/login');
         } else {
             $user = Auth::user();
-            if($user->hasRole('1'))
+            if($user->hasRole('1') )
             {
                 return $next($request);
             } else {

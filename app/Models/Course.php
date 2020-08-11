@@ -8,18 +8,19 @@ class Course extends Model
 {
     protected $fillable = [
         'name',
-        'quantity',
-        'price',
         'description',
-        'place',
-        'timeStart',
-        'timeEnd',
         'image',
-        'teacher',
+        'teacher_id',
         'status',
     ];
 
-    protected $hidden = [
-        'id'
-    ];
+    public function teacher()
+    {
+        return $this->belongsTo('App\Models\Teacher');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany('\App\Models\Category');
+    }
 }

@@ -32,7 +32,7 @@ Route::get('users/logout', 'Auth\LoginController@logout');
 Route::get('users/login', 'Auth\LoginController@showLoginForm');
 Route::post('users/login', 'Auth\LoginController@login')->name('login');
 
-Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'), function () {
+Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
     Route::get('users',	'UsersController@index');
     Route::get('roles',	'RolesController@index');
 	Route::get('roles/create', 'RolesController@create');
@@ -41,4 +41,18 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 
     Route::post('users/{id?}/edit', 'UsersController@update');
 });
 
-Route::resource('courses', 'Admin\CoursesController');
+//Route::resource('courses', 'Admin\CoursesController');
+
+Route::get('categories', 'CategoryController@index');
+Route::get('categories/create', 'CategoryController@create')->name('categorycreate');
+Route::post('categories/create', 'CategoryController@store');
+Route::get('categories/edit/{id}', 'CategoryController@edit');
+Route::post('categories/edit/{id}', 'CategoryController@update');
+Route::get('categories/delete/{id}', 'CategoryController@delete')->name('categorydelete');
+
+Route::get('courses', 'CourseController@index')->name('course.index');
+Route::get('courses/create', 'CourseController@create')->name('coursecreate');
+Route::post('courses/create', 'CourseController@store');
+Route::get('courses/edit/{id}', 'CourseController@edit');
+Route::post('courses/edit/{id}', 'CourseController@update');
+Route::get('courses/delete/{id}', 'CourseController@delete')->name('coursedelete');

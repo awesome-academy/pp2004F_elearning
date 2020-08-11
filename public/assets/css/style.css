@@ -4347,3 +4347,11 @@ Scrolltop CSS
 	background: #e60c3d;
     color: #fff;
 }
+
+.custom-control-input {
+    position: absolute;
+    z-index: 3;
+    opacity: 1;
+    top: 4px;
+    left: -1px;
+}
