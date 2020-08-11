@@ -15,4 +15,9 @@ class Teacher extends Model
         'about',
         'image',
     ];
+
+    public function courses()
+    {
+        return $this->hasMany('App\Models\Course');
+    }
 }

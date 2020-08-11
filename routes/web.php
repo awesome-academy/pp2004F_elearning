@@ -42,3 +42,10 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 
 });
 
 Route::resource('courses', 'Admin\CoursesController');
+
+Route::get('categories', 'CategoryController@index');
+Route::get('categories/create', 'CategoryController@create')->name('categorycreate');
+Route::post('categories/create', 'CategoryController@store');
+Route::get('categories/edit/{id}', 'CategoryController@edit');
+Route::post('categories/edit/{id}', 'CategoryController@update');
+Route::get('categories/delete/{id}', 'CategoryController@delete')->name('delete');

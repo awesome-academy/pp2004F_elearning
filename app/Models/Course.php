@@ -15,11 +15,21 @@ class Course extends Model
         'timeStart',
         'timeEnd',
         'image',
-        'teacher',
+        'teacher_id',
         'status',
     ];
 
     protected $hidden = [
         'id'
     ];
+
+    public function teacher()
+    {
+        return $this->belongsTo('App\Models\Teacher');
+    }
+
+    public function category()
+    {
+        $this->belongsTo('\App\Models\Category');
+    }
 }

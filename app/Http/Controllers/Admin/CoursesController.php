@@ -29,7 +29,7 @@ class CoursesController extends Controller
         $course->place = $request->place;
         $course->timeStart = $request->timeStart;
         $course->timeEnd = $request->timeEnd;
-        $course->teacher = $request->teacher;
+        $course->teacher_id = $request->teacher_id;
         $course->status = $request->status;
 
         if($request->hasFile('image')){
@@ -65,7 +65,7 @@ class CoursesController extends Controller
         $edit->place = $request->place;
         $edit->timeStart = $request->timeStart;
         $edit->timeEnd = $request->timeEnd;
-        $edit->teacher = $request->teacher;
+        $edit->teacher_id = $request->teacher_id;
         $edit->status = $request->status;
         if($request->hasFile('image')){
             $image=$request->file('image');

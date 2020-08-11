@@ -16,15 +16,11 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('quantity');
-            $table->integer('price');
             $table->longText('description');
-            $table->string('place'); /*dia diem hoc/ phong hoc*/
-            $table->date('timeStart');
-            $table->date('timeEnd');
             $table->text('image');
-            $table->string('teacher');/* moi quan he 1-nhieu voi table teacher*/
-            $table->smallInteger('status'); /*tinh trang khoa hoc: ex:0-chua mo; 1-dang hoc, 2-finish, ...*/
+            $table->integer('teacher_id');
+            $table->integer('category_id');
+            $table->smallInteger('status');
             $table->timestamps();
         });
     }
