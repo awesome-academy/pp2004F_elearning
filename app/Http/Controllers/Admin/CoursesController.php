@@ -10,7 +10,7 @@ class CoursesController extends Controller
 {
     public function index()
     {
-        $show=Course::all();
+        $show = Course::all();
         return view('admin.home.users', compact('show'));
     }
 
@@ -32,12 +32,12 @@ class CoursesController extends Controller
         $course->teacher_id = $request->teacher_id;
         $course->status = $request->status;
 
-        if($request->hasFile('image')){
-            $image=$request->file('image');
-            $path=$image->getClientOriginalExtension();
-            $name=time().".".$path;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->getClientOriginalExtension();
+            $name = time() . "." . $path;
             $image->move('images', $name);
-            $course->image=$name;
+            $course->image = $name;
         }
 
         $course->save();
@@ -57,8 +57,8 @@ class CoursesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $edit=Course::find($id);
-        $edit->name=$request->name;
+        $edit = Course::find($id);
+        $edit->name = $request->name;
         $edit->quantity = $request->quantity;
         $edit->price = $request->price;
         $edit->description = $request->description;
@@ -67,12 +67,12 @@ class CoursesController extends Controller
         $edit->timeEnd = $request->timeEnd;
         $edit->teacher_id = $request->teacher_id;
         $edit->status = $request->status;
-        if($request->hasFile('image')){
-            $image=$request->file('image');
-            $path=$image->getClientOriginalExtension();
-            $name=time().".".$path;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->getClientOriginalExtension();
+            $name = time() . "." . $path;
             $image->move('images', $name);
-            $edit->image=$name;
+            $edit->image = $name;
         }
         $edit->save();
         return redirect()->route('courses.index');
@@ -86,7 +86,7 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        $del=Course::find($id);
+        $del = Course::find($id);
         $del->delete();
         return redirect()->route('courses.index');
     }
