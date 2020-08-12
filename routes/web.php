@@ -43,7 +43,7 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
 
 //Route::resource('courses', 'Admin\CoursesController');
 
-Route::get('categories', 'CategoryController@index');
+Route::get('categories', 'CategoryController@index')->name('categoryIndex');
 Route::get('categories/create', 'CategoryController@create')->name('categorycreate');
 Route::post('categories/create', 'CategoryController@store');
 Route::get('categories/edit/{id}', 'CategoryController@edit');
