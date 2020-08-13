@@ -10,6 +10,7 @@ use App\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Order;
 
 class CourseUserController extends Controller
 {
@@ -95,13 +96,24 @@ class CourseUserController extends Controller
         return back();
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $abc = request()->id;
-        dd($abc);
-        $cart = Cart::whereId($abc);
+        $cart = Cart::whereId($id);
         $cart->delete();
         return redirect()->route('courseuser.index');
+    }
+
+    public function storeorder(Request $request)
+    {
+        $order = new Order;
+        $order->user_id = $request->user_id;
+        $order->amount = $request->amount;
+        $order->status = 1;
+        $order->save();
+        $order->courses()->attach($request->course_id);
+        $cart = Cart::whereId($request->cart_id);
+        $cart->delete();
+        return redirect()->route('courseuser.index')->with('status', 'Your order has been save! Plz pay money!!');
     }
 
 }

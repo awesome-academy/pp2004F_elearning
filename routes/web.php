@@ -65,6 +65,10 @@ Route::get('course', 'CourseUserController@index')->name('courseuser.index');
 Route::get('course/{id}', 'CourseUserController@show');
 Route::post('course/{id}', 'CourseUserController@store')->name('cart.store');
 Route::get('cart', 'CourseUserController@showcart');
+Route::post('cart', 'CourseUserController@storeorder')->name('order.store');
 Route::get('cart/{id}', 'CourseUserController@dropcourse')->name('cart.dropcourse');
-Route::get('cart/delete', 'CourseUserController@delete')->name('cartuserdelete');
+
+Route::get('cart/delete/{id}', 'CourseUserController@delete')->name('cartuserdelete');
+
+Route::get('orders', 'OrderController@index')->name('order.index');
 

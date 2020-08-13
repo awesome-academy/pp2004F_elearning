@@ -29,4 +29,9 @@ class Course extends Model
     {
         return $this->belongsToMany('App\Models\Cart');
     }
+    
+    public function orders()
+    {
+        return $this->belongsToMany('App\Models\Order');
+    }
 }

@@ -14,6 +14,11 @@ class Order extends Model
 
     public function user()
     {
-        
+        return $this->belongsTo('App\User');
+    }
+
+    public function courses()
+    {
+        return $this->belongsToMany('App\Models\Course');
     }
 }
