@@ -20,6 +20,7 @@ class CreateCoursesTable extends Migration
             $table->text('image')->nullable();
             $table->integer('teacher_id')->nullable();
             $table->smallInteger('status')->nullable();
+            $table->float('price', 10, 2);
             $table->timestamps();
         });
     }

@@ -61,4 +61,10 @@ Route::get('courses/edit/{id}', 'CourseController@edit');
 Route::post('courses/edit/{id}', 'CourseController@update');
 Route::get('courses/delete/{id}', 'CourseController@delete')->name('coursedelete');
 
+Route::get('course', 'CourseUserController@index')->name('courseuser.index');
+Route::get('course/{id}', 'CourseUserController@show');
+Route::post('course/{id}', 'CourseUserController@store')->name('cart.store');
+Route::get('cart', 'CourseUserController@showcart');
+Route::get('cart/{id}', 'CourseUserController@dropcourse')->name('cart.dropcourse');
+Route::get('cart/delete', 'CourseUserController@delete')->name('cartuserdelete');
 

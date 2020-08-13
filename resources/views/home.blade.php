@@ -27,22 +27,29 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Main Banner Area -->
 
-    <!-- Start Boxes Area -->
-    <section class="boxes-area">
-        <div class="container">
-            <div class="boxes-inner-content">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-box">
-                            <img src="assets/img/technology.jpg" alt="technology">
+        <!-- End Main Banner Area -->
 
-                            <div class="box-content">
-                                <h3>Technology</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor dolore
-                                    magna aliqua.</p>
+        @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+        @endif
+        
+        <!-- Start Boxes Area -->
+        <section class="boxes-area">
+            <div class="container">
+                <div class="boxes-inner-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-box">
+                                <img src="assets/img/technology.jpg" alt="technology">
+                                
+                                <div class="box-content">
+                                    <h3>Technology</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor dolore magna aliqua.</p>
+                                </div>
+
                             </div>
                         </div>
                     </div>

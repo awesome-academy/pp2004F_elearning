@@ -43,6 +43,7 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Category Name</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +55,7 @@
                         </td>
                         <td>{!! $course->description !!}</td>
                         <td>@foreach($course->categories as $category) {!! $category->name !!} @endforeach</td>
+                        <td>{!! $course->price !!}</td>
                     </tr>
                 @endforeach
                 </tbody>

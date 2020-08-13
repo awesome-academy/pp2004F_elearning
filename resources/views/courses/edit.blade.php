@@ -33,6 +33,12 @@
                 </div>
                 @endforeach
                 <div class="form-group">
+                    <label for="name" class="col-lg-2 control-label">Description</label>
+                    <div class="col-lg-10">
+                        <input	type="text" step="0.01"	class="form-control" id="price" placeholder="Price" name="price" value="{{ $course->price }}">
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                         <button type="reset" class="btn btn-default">Cancel</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
