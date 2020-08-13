@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('teacher', 'TeacherShowController@show');
+Route::get('teacher/detail/{id}', 'TeacherShowController@showDetail')->name('teacherDetail');
+
+/*admin*/
 Route::get('/', function () {
     return view('home');
 });
@@ -32,10 +36,10 @@ Route::get('users/logout', 'Auth\LoginController@logout');
 Route::get('users/login', 'Auth\LoginController@showLoginForm');
 Route::post('users/login', 'Auth\LoginController@login')->name('login');
 
-Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
-    Route::get('users',	'UsersController@index');
-    Route::get('roles',	'RolesController@index');
-	Route::get('roles/create', 'RolesController@create');
+Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'), function () {
+    Route::get('users', 'UsersController@index');
+    Route::get('roles', 'RolesController@index');
+    Route::get('roles/create', 'RolesController@create');
     Route::post('roles/create', 'RolesController@store');
     Route::get('users/{id?}/edit', 'UsersController@edit');
     Route::post('users/{id?}/edit', 'UsersController@update');
@@ -56,3 +60,5 @@ Route::post('courses/create', 'CourseController@store');
 Route::get('courses/edit/{id}', 'CourseController@edit');
 Route::post('courses/edit/{id}', 'CourseController@update');
 Route::get('courses/delete/{id}', 'CourseController@delete')->name('coursedelete');
+
+
