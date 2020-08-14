@@ -34,4 +34,14 @@ class Course extends Model
     {
         return $this->belongsToMany('App\Models\Order');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
+
+    public function refunds()
+    {
+        return $this->belongsToMany('App\Models\Refund');
+    }
 }

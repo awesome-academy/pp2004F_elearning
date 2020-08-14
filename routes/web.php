@@ -72,3 +72,5 @@ Route::get('cart/delete/{id}', 'CourseUserController@delete')->name('cartuserdel
 
 Route::get('orders', 'OrderController@index')->name('order.index');
 
+Route::get('orders/deny/{id}', 'OrderController@deny')->name('order.deny');
+Route::get('orders/approve/{id}', 'OrderController@approve')->name('order.approve');
