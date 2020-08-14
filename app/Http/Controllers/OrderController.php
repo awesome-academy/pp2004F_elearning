@@ -8,6 +8,7 @@ use App\User;
 use App\Models\Course;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Refund;
+use Illuminate\Support\Facades\DB;
 
 
 class OrderController extends Controller
@@ -31,15 +32,23 @@ class OrderController extends Controller
         if (!empty($coursefinalrefund_id)){
             $refund = new Refund;
             $refund->user_id = $order->user_id;
+            $refund->save();
             $refund->courses()->attach($coursefinalrefund_id);
-            $refundamount = DB::table('courses')->join('course_refund', 'courses.id', '=', 'course_refund.course_id')
+            $refundamount = DB::table('course_refund')->where('refund_id', $refund->id)
+                                                ->join('courses', 'course_refund.course_id', '=', 'courses.id')
                                                 ->selectRaw('SUM(price) as totalamount')->first();
             $refund->amount = $refundamount->totalamount;
+            $refund->save();
+            $user->courses()->attach($coursefinal_id);
+            $order->status = 0;
+            $order->save();
+            return back()->with('status', 'Order approved!!!');
         }
         else{
             $user->courses()->attach($coursefinal_id);
             $order->status = 0;
             $order->save();
+            return back()->with('status', 'Order approved!!!');
         }   
     }
 
@@ -48,5 +57,7 @@ class OrderController extends Controller
         $order = Order::whereId($id)->first();
         $order->status = 2;
         $order->save();
+        return back()->with('status', 'Order denied!!!');
     }
+
 }

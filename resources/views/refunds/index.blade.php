@@ -3,7 +3,7 @@
 <div class="container col-md-8 col-md-offset-2">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h2> All active orders </h2>
+            <h2> All refunds </h2>
         </div>
         @if (session('status'))
                 <div class="alert alert-success">
@@ -11,8 +11,8 @@
                 </div>
         @endif
         
-        @if ($orders->isEmpty())
-            <p> There is no order.</p>
+        @if ($refunds->isEmpty())
+            <p> There is no refund.</p>
         @else
              <table class="table">
                 <thead>
@@ -20,21 +20,16 @@
                         <th>ID</th>
                         <th>User Email</th>
                         <th>Amount</th>
-                        <th>Courses</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($orders as $order)
+                @foreach($refunds as $refund)
                     <tr>
-                        <td>{!! $order->id !!}</td>
-                        <td>{!! $order->user->email !!}</td>
-                        <td>{!! $order->amount !!}</td>
-                        <td> @foreach($order->courses as $course) {!! $course->name !!} @endforeach</td>
+                        <td>{!! $refund->id !!}</td>
+                        <td>{!! $refund->user->email !!}</td>
+                        <td>{!! $refund->amount !!}</td>
                         <td>
-                            <a href="{{route('order.approve', ['id' => $order->id])}}">Approve</a>
-                        </td>
-                        <td>
-                            <a href="{{route('order.deny', ['id' => $order->id])}}">Deny</a>
+                            <a href="{{route('refund.delete', ['id' => $refund->id])}}">Delete</a>
                         </td>
                     </tr>
                 @endforeach

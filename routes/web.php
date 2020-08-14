@@ -74,3 +74,8 @@ Route::get('orders', 'OrderController@index')->name('order.index');
 
 Route::get('orders/deny/{id}', 'OrderController@deny')->name('order.deny');
 Route::get('orders/approve/{id}', 'OrderController@approve')->name('order.approve');
+
+Route::get('refunds', 'RefundController@index')->name('refund.index');
+Route::get('refunds/delete/{id}', 'RefundController@delete')->name('refund.delete');
+
+Route::get('mycourse', 'MyCourseController@index')->name('mycourse.index');

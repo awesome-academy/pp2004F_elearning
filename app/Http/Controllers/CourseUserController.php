@@ -44,28 +44,32 @@ class CourseUserController extends Controller
             return back()->with('status', "You must log in to add course to cart!!");
         }
         else{
-            if (DB::table('carts')->where('user_id', $user_id)->exists()){
-                $cart = Cart::where('user_id', $user_id)->first();
-                $course = $request->get('course_id');
-                if(DB::table('cart_course')->where(function($query) use($cart, $course) {$query->where('cart_id', $cart->id)
-                                                                                               ->where('course_id', $course);})->exists()){
-                    return back()->with('status', 'This course has been already added to your cart!!');
-                }
-                else{
-                    $cart->courses()->attach($course);
-                    return back()->with('status', 'This course has been added to your cart!');
-                }    
+            $course = $request->get('course_id');
+            if(DB::table('course_user')->where(function($query) use($course,$user_id){$query->where('course_id', $course)
+                ->where('user_id', $user_id);})->exists()){
+                    return back()->with('status', 'You already got this course!!');
             }
             else{
-                $cart = new Cart;
-                $cart->user_id = Auth::id();
-                $cart->save();
-                $course = $request->get('course_id');
-                $cart->courses()->attach($course);
-                return back()->with('status', 'This course has been added to your cart!');
+                if (DB::table('carts')->where('user_id', $user_id)->exists()){
+                    $cart = Cart::where('user_id', $user_id)->first();
+                    if(DB::table('cart_course')->where(function($query) use($cart, $course) {$query->where('cart_id', $cart->id)
+                                                                                                   ->where('course_id', $course);})->exists()){
+                        return back()->with('status', 'This course has been already added to your cart!!');
+                    }
+                    else{
+                        $cart->courses()->attach($course);
+                        return back()->with('status', 'This course has been added to your cart!');
+                    }    
+                }
+                else{
+                    $cart = new Cart;
+                    $cart->user_id = Auth::id();
+                    $cart->save();
+                    $cart->courses()->attach($course);
+                    return back()->with('status', 'This course has been added to your cart!');
+                }
             }
         }    
-        
     }
 
     public function showcart(){
@@ -80,7 +84,8 @@ class CourseUserController extends Controller
             }
             else{
                 $courses = $cart->courses()->get();
-                $totalamount = DB::table('courses')->join('cart_course', 'courses.id', '=', 'cart_course.course_id')
+                $totalamount = DB::table('cart_course')->where('cart_id', $cart->id)
+                                                 ->join('courses', 'cart_course.course_id', '=', 'courses.id')
                                                  ->selectRaw('SUM(price) as totalamount')->first();
                 //var_dump($totalamount);                           
                 return view('courseuser.cart', compact('cart', 'courses', 'totalamount'));
