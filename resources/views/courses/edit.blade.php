@@ -33,7 +33,7 @@
                 </div>
                 @endforeach
                 <div class="form-group">
-                    <label for="name" class="col-lg-2 control-label">Description</label>
+                    <label for="name" class="col-lg-2 control-label">Price</label>
                     <div class="col-lg-10">
                         <input	type="text" step="0.01"	class="form-control" id="price" placeholder="Price" name="price" value="{{ $course->price }}">
                     </div>

@@ -44,4 +44,9 @@ class Course extends Model
     {
         return $this->belongsToMany('App\Models\Refund');
     }
+
+    public function lessons()
+    {
+        return $this->hasMany('App\Models\Lesson');
+    }
 }

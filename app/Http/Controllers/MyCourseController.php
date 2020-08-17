@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-Use App\Models\Course;
+use App\Models\Course;
+use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Builder;
@@ -40,5 +41,47 @@ class MyCourseController extends Controller
                 return view('mycourse.index', compact('mycourses', 'categories', 'categoryName'));
             }
         }
+    }
+
+    public function course($id)
+    {
+        $user_id = Auth::id();
+        $user = User::whereId($user_id)->first();
+        $usercourses = $user->courses()->get()->toArray();
+        $usercourses_id = array_column($usercourses, 'id');
+        $course = Course::whereId($id)->first();
+        if ($user_id === null){
+            return redirect('/home');
+        }
+        else{
+            if(!in_array($course->id, $usercourses_id)){
+                return redirect('/home');
+            }
+            else{
+                $lessons = $course->lessons()->get();
+                return view('mycourse.lesson', compact('course', 'lessons'));
+            }
+        }
+    }
+
+    public function lesson($id, $lesson_id)
+    {
+        $user_id = Auth::id();
+        $user = User::whereId($user_id)->first();
+        $usercourses = $user->courses()->get()->toArray();
+        $usercourses_id = array_column($usercourses, 'id');
+        $course = Course::whereId($id)->first();
+        if ($user_id === null){
+            return redirect('/home');
+        }
+        else{
+            if(!in_array($course->id, $usercourses_id)){
+                return redirect('/home');
+            }
+            else{
+                $lesson = Lesson::whereId($lesson_id)->first();
+                return view('mycourse.content', compact('course', 'lesson'));
+            }
+        } 
     }
 }

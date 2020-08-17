@@ -79,3 +79,12 @@ Route::get('refunds', 'RefundController@index')->name('refund.index');
 Route::get('refunds/delete/{id}', 'RefundController@delete')->name('refund.delete');
 
 Route::get('mycourse', 'MyCourseController@index')->name('mycourse.index');
+Route::get('mycourse/course/{id}', 'MyCourseController@course')->name('mycourse.course');
+Route::get('mycourse/course/{id}/lesson/{lesson_id}', 'MyCourseController@lesson')->name('mycourse.lesson');
+
+Route::get('lessons', 'LessonController@index')->name('lesson.index');
+Route::get('lessons/create', 'LessonController@create')->name('lesson.create');
+Route::post('lessons/create', 'LessonController@store')->name('lesson.store');
+Route::get('lessons/edit/{id}', 'LessonController@edit');
+Route::post('lessons/edit/{id}', 'LessonController@update');
+Route::get('lessons/delete/{id}', 'LessonController@delete')->name('lesson.delete');

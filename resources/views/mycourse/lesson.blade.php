@@ -5,7 +5,7 @@
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
-                        <h3>{{ $categoryName }}</h3>
+                        <h3>{{ $course->name }}</h3>
                     </div>
                 </div>
             </div>
@@ -17,20 +17,12 @@
                 </div>
         @endif
         
-        <div class="classynav">
-			<ul>
-                <li><a href="{{ route('mycourse.index') }}" class="active">All courses</a> </li>
-            @foreach ($categories as $category)    
-                <li><a href="{{  route('mycourse.index', ['category' => $category->name]) }}" class="active">{{ $category->name }}</a> </li>
-            @endforeach    
-			</ul>
-		</div>
         
         <!-- Start Courses Area -->
         <section class="courses-area ptb-100">
             <div class="container">
                 <div class="row">
-                    @foreach($mycourses as $mycourse)
+                    @foreach($lessons as $lesson)
                     <div class="col-lg-4 col-md-6">
                         <div class="single-courses-item">
                             <div class="courses-img">
@@ -38,8 +30,8 @@
                             </div>
                             
                             <div class="courses-content">
-                                <h3>{{ $mycourse->name }}</h3>
-                                <h3><a href="{{route('mycourse.course', ['id' => $mycourse->id])}}">Start learning!!</a></h3>
+                                <h3>{{ $lesson->name }}</h3>
+                                <h3><a href={{ route('mycourse.lesson', ['id' => $course->id, 'lesson_id' => $lesson->id])}}>Start learning!!</a></h3>
                                 <ul>
                                     <li><i class="icofont-star"></i></li>
                                     <li><i class="icofont-star"></i></li>
@@ -47,10 +39,6 @@
                                     <li><i class="icofont-star"></i></li>
                                     <li><i class="icofont-star"></i></li>
                                 </ul>
-                            </div>
-                            
-                            <div class="courses-content-bottom">
-                                <h4 class="price">{{ $mycourse->price}}</h4>
                             </div>
                         </div>
                     </div>
