@@ -39,10 +39,17 @@
             <h4> {{ $question->content }} </h4>                 
                 @foreach($question->answers as $answer)
                     <div class="form-check">
+                        @if(old("questions.$question->id") == $answer->id)
+                        <input class="form-check-input" type="radio" name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}" value="{{ $answer->id }}" checked>
+                        <label class="form-check-label" for="answer-{{ $answer->id }}">
+                            {{ $answer->content }}
+                        </label>
+                        @else
                         <input class="form-check-input" type="radio" name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}" value="{{ $answer->id }}">
                         <label class="form-check-label" for="answer-{{ $answer->id }}">
                             {{ $answer->content }}
                         </label>
+                        @endif
                     </div> 
                 @endforeach       
             @endforeach
