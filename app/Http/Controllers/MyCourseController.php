@@ -128,6 +128,6 @@ class MyCourseController extends Controller
             ]];
         })->toArray();
         //dd($questions);
-        return back()->with('status', "Your score is  $result/$def ");  
+        return back()->withInput()->with('status', "Your score is  $result/$def ");  
     }
 }
