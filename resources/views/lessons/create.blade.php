@@ -32,7 +32,7 @@
         @endif
         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
         <fieldset>
-            <legend>Create a new course</legend>
+            <legend>Create a new lesson</legend>
             <div class="form-group">
                 <label for="name" class="col-lg-2 control-label">Name</label>
                 <div class="col-lg-10">
@@ -40,27 +40,15 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="name" class="col-lg-2 control-label">Description</label>
+                <label for="course_id" class="col-lg-2 control-label">Course_id</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control"	id="description" name="description">
+                    <input type="number" class="form-control" id="course_id" name="course_id">
                 </div>
             </div>
             <div class="form-group">
-                <label for="name" class="col-lg-2 control-label">Teacher</label>
+                <label for="content" class="col-lg-2 control-label">Content</label>
                 <div class="col-lg-10">
-                    <input type="number" class="form-control" id="teacher_id" name="teacher_id">
-                </div>
-            </div>
-            @foreach ($categories as $category)
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="category_id" name="category_id[]" value=" {{ $category->id }} ">
-                <label class="custom-control-label" for="customCheck1">{{ $category->name }}</label>
-            </div>
-            @endforeach
-            <div class="form-group">
-                <label for="name" class="col-lg-2 control-label">Price</label>
-                <div class="col-lg-10">
-                    <input type="number" step="0.01" class="form-control" id="price" name="price">
+                    <textarea id="content" name="content" rows="20" cols="100">Content.</textarea>
                 </div>
             </div>
             <div class="form-group">

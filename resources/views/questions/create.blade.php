@@ -32,35 +32,17 @@
         @endif
         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
         <fieldset>
-            <legend>Create a new course</legend>
+            <legend>Create a new question</legend>
             <div class="form-group">
-                <label for="name" class="col-lg-2 control-label">Name</label>
+                <label for="content" class="col-lg-2 control-label">Content</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control"	id="name" name="name">
+                    <input type="text" class="form-control"	id="content" name="content">
                 </div>
             </div>
             <div class="form-group">
-                <label for="name" class="col-lg-2 control-label">Description</label>
+                <label for="lesson_id" class="col-lg-2 control-label">lesson_id</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control"	id="description" name="description">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="name" class="col-lg-2 control-label">Teacher</label>
-                <div class="col-lg-10">
-                    <input type="number" class="form-control" id="teacher_id" name="teacher_id">
-                </div>
-            </div>
-            @foreach ($categories as $category)
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="category_id" name="category_id[]" value=" {{ $category->id }} ">
-                <label class="custom-control-label" for="customCheck1">{{ $category->name }}</label>
-            </div>
-            @endforeach
-            <div class="form-group">
-                <label for="name" class="col-lg-2 control-label">Price</label>
-                <div class="col-lg-10">
-                    <input type="number" step="0.01" class="form-control" id="price" name="price">
+                    <input type="number" class="form-control" id="lesson_id" name="lesson_id">
                 </div>
             </div>
             <div class="form-group">

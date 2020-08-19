@@ -12,6 +12,7 @@ class Course extends Model
         'image',
         'teacher_id',
         'status',
+        'price',
     ];
 
     public function teacher()
@@ -22,5 +23,30 @@ class Course extends Model
     public function categories()
     {
         return $this->belongsToMany('\App\Models\Category');
+    }
+
+    public function carts()
+    {
+        return $this->belongsToMany('App\Models\Cart');
+    }
+    
+    public function orders()
+    {
+        return $this->belongsToMany('App\Models\Order');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
+
+    public function refunds()
+    {
+        return $this->belongsToMany('App\Models\Refund');
+    }
+
+    public function lessons()
+    {
+        return $this->hasMany('App\Models\Lesson');
     }
 }
