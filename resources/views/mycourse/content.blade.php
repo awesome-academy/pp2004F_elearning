@@ -27,5 +27,5 @@
                                    
         </div>
         <!-- End Courses Area -->
-
+        <a class="btn btn-primary" href={{route('mycourse.exam', ['id' => $lesson->course_id, 'lesson_id' => $lesson->id])}} role="button">Take exam</a>
 @endsection

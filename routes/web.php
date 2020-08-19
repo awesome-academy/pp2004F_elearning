@@ -81,6 +81,8 @@ Route::get('refunds/delete/{id}', 'RefundController@delete')->name('refund.delet
 Route::get('mycourse', 'MyCourseController@index')->name('mycourse.index');
 Route::get('mycourse/course/{id}', 'MyCourseController@course')->name('mycourse.course');
 Route::get('mycourse/course/{id}/lesson/{lesson_id}', 'MyCourseController@lesson')->name('mycourse.lesson');
+Route::get('mycourse/course/{id}/lesson/{lesson_id}/exam', 'MyCourseController@exam')->name('mycourse.exam');
+Route::post('mycourse/course/{id}/lesson/{lesson_id}/exam', 'MyCourseController@storeexam');
 
 Route::get('lessons', 'LessonController@index')->name('lesson.index');
 Route::get('lessons/create', 'LessonController@create')->name('lesson.create');
@@ -88,3 +90,24 @@ Route::post('lessons/create', 'LessonController@store')->name('lesson.store');
 Route::get('lessons/edit/{id}', 'LessonController@edit');
 Route::post('lessons/edit/{id}', 'LessonController@update');
 Route::get('lessons/delete/{id}', 'LessonController@delete')->name('lesson.delete');
+
+
+Route::get('questions', 'QuestionController@index');
+Route::get('questions/create', 'QuestionController@create')->name('question.create');
+Route::post('questions/create', 'QuestionController@store');
+Route::get('questions/edit/{id}', 'QuestionController@edit');
+Route::post('questions/edit/{id}', 'QuestionController@update');
+Route::get('questions/delete/{id}', 'QuestionController@delete')->name('question.delete');
+Route::get('question/{id}/answer', 'QuestionController@answer')->name('question.answer');
+Route::get('question/{id}/answer/create', 'QuestionController@answercreate')->name('question.answercreate');
+Route::post('question/{id}/answer/create', 'QuestionController@answerstore')->name('question.answerstore');
+Route::get('question/{id}/answer/edit/{answer_id}', 'QuestionController@answeredit')->name('question.answeredit');
+Route::post('question/{id}/answer/edit/{answer_id}', 'QuestionController@answerupdate');
+Route::get('question/{id}/answer/delete/{answer_id}', 'QuestionController@answerdetele')->name('question.answerdelete');
+
+Route::get('answers', 'AnswerController@index');
+Route::get('answers/create', 'AnswerController@create')->name('answer.create');
+Route::post('answers/create', 'AnswerController@store');
+Route::get('answers/edit/{id}', 'AnswerController@edit');
+Route::post('answers/edit/{id}', 'AnswerController@update');
+Route::get('answers/delete/{id}', 'AnswerController@delete')->name('answer.delete');

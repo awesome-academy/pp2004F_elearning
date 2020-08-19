@@ -19,6 +19,8 @@ class CourseController extends Controller
             $categoryName = $categories->where('name', request()->category)->first()->name;
     } else{
             $courses = Course::all();
+            //var_dump($courses);
+            //dd($courses);
             $categories = Category::all();
             $categoryName = 'All course';
         }

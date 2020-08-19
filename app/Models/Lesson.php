@@ -16,4 +16,9 @@ class Lesson extends Model
     {
         return $this->belongsTo('App\Models\Course');
     }
+
+    public function questions()
+    {
+        return $this->hasMany('App\Models\Question');
+    }
 }
