@@ -19,7 +19,7 @@
                             <div class="teacher-content">
                                 <h3><a href="#">{{$teacher->name}}</a></h3>
                                 <span>Web Developer</span>
-                                <h4><a href="{{route('teacherDetail', $teacher->id)}}">View Profile <i class="icofont-long-arrow-right"></i></a></h4>
+                                <h4><a href="{{route('teacherDetail', $teacher->id)}}">View Profile<i class="icofont-long-arrow-right"></i></a></h4>
                                 <ul>
                                     <li><a href="#"><i class="icofont-facebook"></i></a></li>
                                     <li><a href="#"><i class="icofont-twitter"></i></a></li>

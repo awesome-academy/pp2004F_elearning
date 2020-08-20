@@ -17,7 +17,7 @@
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Image</th>
-                        <th></th>
+                        <th style="text-align: center"><a href="{{route('teachercreate')}}">Create</a></th>
                     </tr>
                     </thead>
                     <tbody>

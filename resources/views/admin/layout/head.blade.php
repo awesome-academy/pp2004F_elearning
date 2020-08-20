@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{asset('/admin/vendor/bootstrap/dist/css/bootstrap.css')}}" />
     <link rel="stylesheet" href="{{asset('/admin/vendor/PACE/themes/blue/pace-theme-minimal.css')}}" />
     <link rel="stylesheet" href="{{asset('/admin/vendor/perfect-scrollbar/css/perfect-scrollbar.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('/css/style.css')}}" />
 
     <!-- page css -->
 

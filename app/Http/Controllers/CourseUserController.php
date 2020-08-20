@@ -33,7 +33,8 @@ class CourseUserController extends Controller
     public function show($id)
     {
         $course = Course::whereId($id)->firstOrFail();
-        $categories = Category::all();
+        //$categories = Category::all();
+        $categories=Category::find($id);
         return view('courseuser.show', compact('course', 'categories'));
     }
 

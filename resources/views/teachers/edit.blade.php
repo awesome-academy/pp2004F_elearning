@@ -25,6 +25,7 @@
             <label>Image</label>
             <input type="file" class="form-control" name="image" value="{{ $teacher->image }}">
         </div>
+        <a href="{{route('teachers-index')}}" class="btn btn-warning">Back</a>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
