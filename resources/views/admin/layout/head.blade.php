@@ -15,18 +15,13 @@
 
     <!-- page css -->
 
-    <!-- core css -->
     <link href="{{asset('/admin/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('/admin/css/themify-icons.css')}}" rel="stylesheet">
     <link href="{{asset('/admin/css/materialdesignicons.min.css')}}" rel="stylesheet">
     <link href="{{asset('/admin/css/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('/admin/css/app.css')}}" rel="stylesheet">
-
-    <script src="{{asset('/admin/js/vendor.js')}}" defer></script>
-    <script src="{{asset('/admin/js/app.min.js')}}" defer></script>
-    <script src="{{asset('/admin/vendor/chart.js/dist/Chart.min.js')}}" defer></script>
-    <script src="{{asset('/admin/vendor/jquery.sparkline/jquery.sparkline.min.js')}}" defer></script>
-    <script src="{{asset('/admin/js/dashboard/default.js')}}" defer></script>
+    <!-- core css -->
+s
 
     <style>
         .btn-none{

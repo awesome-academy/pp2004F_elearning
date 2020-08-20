@@ -515,5 +515,9 @@
 </body>
 
 
-<!-- Mirrored from themenate.com/applicator/dist/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Jul 2018 11:18:15 GMT -->
+<script src="{{asset('/admin/js/vendor.js')}}"></script>
+<script src="{{asset('/admin/js/app.min.js')}}"></script>
+<script src="{{asset('/admin/vendor/chart.js/dist/Chart.min.js')}}"></script>
+<script src="{{asset('/admin/vendor/jquery.sparkline/jquery.sparkline.min.js')}}"></script>
+<script src="{{asset('/admin/js/dashboard/default.js')}}"></script>
 </html>

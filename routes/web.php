@@ -30,10 +30,10 @@ Route::get('teachers/delete/{id}', 'TeacherController@delete')->name('teacherdel
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
+Route::get('users/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('users/register', 'Auth\RegisterController@register');
 Route::get('users/logout', 'Auth\LoginController@logout');
-Route::get('users/login', 'Auth\LoginController@showLoginForm');
+Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login-form');
 Route::post('users/login', 'Auth\LoginController@login')->name('login');
 
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
@@ -110,3 +110,4 @@ Route::post('answers/create', 'AnswerController@store');
 Route::get('answers/edit/{id}', 'AnswerController@edit');
 Route::post('answers/edit/{id}', 'AnswerController@update');
 Route::get('answers/delete/{id}', 'AnswerController@delete')->name('answer.delete');
+

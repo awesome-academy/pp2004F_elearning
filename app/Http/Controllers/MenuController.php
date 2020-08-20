@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Menu;
+use App\Models\Menu;
 
 class MenuController extends Controller
 {
@@ -12,9 +12,6 @@ class MenuController extends Controller
     {
         //$items = DB::table('menus')->where('parentId', '1')->get();
         $items=Menu::all();
-        return view('welcome', compact('items'));
+        return view('layout.header', compact('items'));
     }
-
-
 }
-
