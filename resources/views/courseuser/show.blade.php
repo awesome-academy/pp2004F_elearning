@@ -1,67 +1,115 @@
 @extends('master')
 @section('content')
-         <!-- Start Page Title Area -->
-         <div class="page-title">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <h3>{{ $course->name }}</h3>
-                    </div>
+    <div class="page-title">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <h3>{{ $course->name }}</h3>
                 </div>
             </div>
         </div>
-        <!-- End Page Title Area -->
-        <div class="classynav">
-			<ul>
-                <li><a href="{{ route('courseuser.index') }}" class="active">All courses</a> </li>
-            @foreach ($categories as $category)    
-                <li><a href="{{  route('courseuser.index', ['category' => $category->name]) }}" class="active">{{ $category->name }}</a> </li>
-            @endforeach    
-			</ul>
-		</div>
-        @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-        @endif
-        <!-- Start Courses Area -->
-        <section class="courses-area ptb-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-courses-item">
-                            <div class="courses-img">
-                                <img src="assets/img/course-one.jpg" alt="course">
-                            </div>
-                            
-                            <div class="courses-content">
-                                <h3>{{ $course->name }}</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
-                            </div>
+    </div>
 
-                            <form action="{{ route('cart.store', $id = $course->id) }}" method="post">
-                            {!! csrf_field() !!}
-                                <input type="hidden" name="course_id" value="{{ $course->id }}">
-                                <button type="submit" class="button button-plain"> Add to Cart </buton>
-                            </form>    
-                            <div class="courses-content-bottom">
-                                <h4 class="price">{{ $course->price }}</h4>
-                            </div>
+    <section class="shop-details-area ptb-100">
+        <div class="container">
+            <div class="shop-details">
+                <div class="row">
+                    <div class="col-lg-5 col-md-12">
+                        <div class="product-img">
+                            <img src="assets/img/shop-details.jpg" alt="shop">
                         </div>
                     </div>
-                    
-                    
-                    
-                
+
+                    <div class="col-lg-7 col-md-12">
+                        <div class="product-description">
+                            <h3>{{$course->name}}</h3>
+                            <div class="price">
+                                <h4>{{$course->price}}</h4>
+                            </div>
+
+                            <p>{{$course->description}}</p>
+
+                            <form>
+                                <input type="number" class="form-control" value="1">
+                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+
+                            <div class="add-to-wishlist">
+                                <button type="submit" class="btn btn-primary">Add to Wishlist</button>
+                            </div>
+
+                            <div class="category">
+                                <span>Category:</span>
+                                <a href="#">{{$categories->name}}</a>
+                            </div>
+
+                            <ul>
+                                <li><a href="#" class="icofont-facebook"></a></li>
+                                <li><a href="#" class="icofont-twitter"></a></li>
+                                <li><a href="#" class="icofont-instagram"></a></li>
+                                <li><a href="#" class="icofont-linkedin"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {{--<div class="col-lg-12 col-md-12">--}}
+                        {{--<div class="shop-details-tabs">--}}
+                            {{--<ul id="tabs">--}}
+                                {{--<li class="active" id="tab_1">Description</li>--}}
+                                {{--<li class="inactive" id="tab_2">Review</li>--}}
+                            {{--</ul>--}}
+                            {{--<div class="content show" id="tab_1_content">--}}
+                                {{--<div class="shop-description">--}}
+                                    {{--<h3>Description</h3>--}}
+                                    {{--<p>{{$course->desciption}}</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+
+                            {{--<div class="content" id="tab_2_content">--}}
+                                {{--<div class="shop-reviews">--}}
+                                    {{--<h3>Reviews</h3>--}}
+                                    {{--<p>There are no reviews yet.</p>--}}
+                                    {{--<b>Be the first to review “Make a Presentation”</b>--}}
+                                    {{--<p>Your Rating</p>--}}
+                                    {{--<ul>--}}
+                                        {{--<li><a href="#"><i class="icofont-star"></i></a></li>--}}
+                                        {{--<li><a href="#"><i class="icofont-star"></i><i class="icofont-star"></i></a></li>--}}
+                                        {{--<li><a href="#"><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i></a></li>--}}
+                                        {{--<li><a href="#"><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i></a></li>--}}
+                                        {{--<li><a href="#"><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i></a></li>--}}
+                                    {{--</ul>--}}
+                                    {{--<form class="review-form">--}}
+                                        {{--<div class="row">--}}
+                                            {{--<div class="col-lg-12 col-md-12">--}}
+                                                {{--<div class="form-group">--}}
+                                                    {{--<textarea name="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+
+                                            {{--<div class="col-lg-6 col-md-6">--}}
+                                                {{--<div class="form-group">--}}
+                                                    {{--<input type="text" placeholder="Name" class="form-control">--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+
+                                            {{--<div class="col-lg-6 col-md-6">--}}
+                                                {{--<div class="form-group">--}}
+                                                    {{--<input type="email" placeholder="Email" class="form-control">--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+
+                                            {{--<div class="col-lg-12 col-md-12">--}}
+                                                {{--<button type="submit" class="btn btn-primary">Submit</button>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</form>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                 </div>
             </div>
-        </section>
-        <!-- End Courses Area -->
-
+        </div>
+    </section>
+    <!-- End Shop Details Area -->
 @endsection

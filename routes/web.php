@@ -36,8 +36,8 @@ Route::get('users/logout', 'Auth\LoginController@logout');
 Route::get('users/login', 'Auth\LoginController@showLoginForm');
 Route::post('users/login', 'Auth\LoginController@login')->name('login');
 
-Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'), function () {
-    Route::get('users', 'UsersController@index');
+Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
+    Route::get('users', 'UsersController@index')->name('user-index');
     Route::get('roles', 'RolesController@index');
     Route::get('roles/create', 'RolesController@create');
     Route::post('roles/create', 'RolesController@store');
@@ -91,8 +91,7 @@ Route::get('lessons/edit/{id}', 'LessonController@edit');
 Route::post('lessons/edit/{id}', 'LessonController@update');
 Route::get('lessons/delete/{id}', 'LessonController@delete')->name('lesson.delete');
 
-
-Route::get('questions', 'QuestionController@index');
+Route::get('questions', 'QuestionController@index')->name('question.index');
 Route::get('questions/create', 'QuestionController@create')->name('question.create');
 Route::post('questions/create', 'QuestionController@store');
 Route::get('questions/edit/{id}', 'QuestionController@edit');
@@ -105,7 +104,7 @@ Route::get('question/{id}/answer/edit/{answer_id}', 'QuestionController@answered
 Route::post('question/{id}/answer/edit/{answer_id}', 'QuestionController@answerupdate');
 Route::get('question/{id}/answer/delete/{answer_id}', 'QuestionController@answerdetele')->name('question.answerdelete');
 
-Route::get('answers', 'AnswerController@index');
+Route::get('answers', 'AnswerController@index')->name('answers.home');
 Route::get('answers/create', 'AnswerController@create')->name('answer.create');
 Route::post('answers/create', 'AnswerController@store');
 Route::get('answers/edit/{id}', 'AnswerController@edit');

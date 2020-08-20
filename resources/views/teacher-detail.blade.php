@@ -84,86 +84,85 @@
                 </div>
             </div>
         </div>
+        {{--<div class="teacher-involved-coures">--}}
+            {{--<div class="container">--}}
+                {{--<h2>Involved in courses</h2>--}}
 
-        <div class="teacher-involved-coures">
-            <div class="container">
-                <h2>Involved in courses</h2>
+                {{--<div class="row">--}}
+                    {{--<div class="col-lg-4 col-md-6">--}}
+                        {{--<div class="single-courses-item">--}}
+                            {{--<div class="courses-img">--}}
+                                {{--<img src="assets/img/course-one.jpg" alt="course">--}}
+                            {{--</div>--}}
 
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-courses-item">
-                            <div class="courses-img">
-                                <img src="assets/img/course-one.jpg" alt="course">
-                            </div>
+                            {{--<div class="courses-content">--}}
+                                {{--<h3><a href="#">Machine Learning</a></h3>--}}
+                                {{--<ul>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
 
-                            <div class="courses-content">
-                                <h3><a href="#">Machine Learning</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
-                            </div>
+                            {{--<div class="courses-content-bottom">--}}
+                                {{--<h4><i class="icofont-ui-user"></i> 120 Students</h4>--}}
+                                {{--<h4 class="price">$120</h4>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
-                            <div class="courses-content-bottom">
-                                <h4><i class="icofont-ui-user"></i> 120 Students</h4>
-                                <h4 class="price">$120</h4>
-                            </div>
-                        </div>
-                    </div>
+                    {{--<div class="col-lg-4 col-md-6">--}}
+                        {{--<div class="single-courses-item">--}}
+                            {{--<div class="courses-img">--}}
+                                {{--<img src="assets/img/course-two.jpg" alt="course">--}}
+                            {{--</div>--}}
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-courses-item">
-                            <div class="courses-img">
-                                <img src="assets/img/course-two.jpg" alt="course">
-                            </div>
+                            {{--<div class="courses-content">--}}
+                                {{--<h3><a href="#">Learning Analytics Course</a></h3>--}}
+                                {{--<ul>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
 
-                            <div class="courses-content">
-                                <h3><a href="#">Learning Analytics Course</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
-                            </div>
+                            {{--<div class="courses-content-bottom">--}}
+                                {{--<h4><i class="icofont-ui-user"></i> 120 Students</h4>--}}
+                                {{--<h4 class="price"><span>$140</span> $120</h4>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
-                            <div class="courses-content-bottom">
-                                <h4><i class="icofont-ui-user"></i> 120 Students</h4>
-                                <h4 class="price"><span>$140</span> $120</h4>
-                            </div>
-                        </div>
-                    </div>
+                    {{--<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">--}}
+                        {{--<div class="single-courses-item">--}}
+                            {{--<div class="courses-img">--}}
+                                {{--<img src="assets/img/course-three.jpg" alt="course">--}}
+                            {{--</div>--}}
 
-                    <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-                        <div class="single-courses-item">
-                            <div class="courses-img">
-                                <img src="assets/img/course-three.jpg" alt="course">
-                            </div>
+                            {{--<div class="courses-content">--}}
+                                {{--<h3><a href="#">Consulting Workshop</a></h3>--}}
+                                {{--<ul>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                    {{--<li><i class="icofont-star"></i></li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
 
-                            <div class="courses-content">
-                                <h3><a href="#">Consulting Workshop</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
-                            </div>
-
-                            <div class="courses-content-bottom">
-                                <h4><i class="icofont-ui-user"></i> 120 Students</h4>
-                                <h4 class="price">$120</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            {{--<div class="courses-content-bottom">--}}
+                                {{--<h4><i class="icofont-ui-user"></i> 120 Students</h4>--}}
+                                {{--<h4 class="price">$120</h4>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </section>
     <!-- End Teacher Details Area -->
 @endsection

@@ -1,4 +1,4 @@
-@extends('master')
+@extends('admin.layout.master')
 @section('content')
 <div class="container col-md-6 col-md-offset-3">
     <div class="well well bs-component">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <a href="{{route('course.index')}}" class="btn btn-default">Cancel</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
