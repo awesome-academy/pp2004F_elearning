@@ -32,7 +32,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('users/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('users/register', 'Auth\RegisterController@register');
-Route::get('users/logout', 'Auth\LoginController@logout');
+Route::get('users/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login-form');
 Route::post('users/login', 'Auth\LoginController@login')->name('login');
 
@@ -64,7 +64,7 @@ Route::get('courses/delete/{id}', 'CourseController@delete')->name('coursedelete
 Route::get('course', 'CourseUserController@index')->name('courseuser.index');
 Route::get('course/{id}', 'CourseUserController@show');
 Route::post('course/{id}', 'CourseUserController@store')->name('cart.store');
-Route::get('cart', 'CourseUserController@showcart');
+Route::get('cart', 'CourseUserController@showcart')->name('order');
 Route::post('cart', 'CourseUserController@storeorder')->name('order.store');
 Route::get('cart/{id}', 'CourseUserController@dropcourse')->name('cart.dropcourse');
 

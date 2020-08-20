@@ -8,10 +8,10 @@ class Menu extends Model
 {
     protected $fillable=[
         'name',
-        'link'
+        'link',
     ];
 
     protected $hidden=[
-        'id'
+        'id',
     ];
 }

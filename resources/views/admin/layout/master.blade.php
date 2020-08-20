@@ -509,11 +509,8 @@
         <!-- Page Container END -->
 
     </div>
-</div>
-
-
+</div>0
 </body>
-
 
 <script src="{{asset('/admin/js/vendor.js')}}"></script>
 <script src="{{asset('/admin/js/app.min.js')}}"></script>

@@ -11,7 +11,7 @@ class MenuController extends Controller
     public function getMenu()
     {
         //$items = DB::table('menus')->where('parentId', '1')->get();
-        $items=Menu::all();
+        $items = Menu::all();
         return view('layout.header', compact('items'));
     }
 }
