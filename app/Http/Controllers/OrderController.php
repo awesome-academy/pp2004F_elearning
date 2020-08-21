@@ -29,7 +29,7 @@ class OrderController extends Controller
         $user_course_id = array_column($user_course, 'id');
         $coursefinal_id = array_diff($courses_id,$user_course_id);
         $coursefinalrefund_id = array_intersect($courses_id,$user_course_id);
-        if (!empty($coursefinalrefund_id)){
+        if (!empty($coursefinalrefund_id)) {
             $refund = new Refund;
             $refund->user_id = $order->user_id;
             $refund->save();
@@ -44,7 +44,7 @@ class OrderController extends Controller
             $order->save();
             return back()->with('status', 'Order approved!!!');
         }
-        else{
+        else {
             $user->courses()->attach($coursefinal_id);
             $order->status = 0;
             $order->save();

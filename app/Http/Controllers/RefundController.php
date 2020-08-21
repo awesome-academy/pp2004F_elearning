@@ -19,4 +19,5 @@ class RefundController extends Controller
         $refund->delete();
         return back();
     }
+
 }

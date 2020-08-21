@@ -15,6 +15,5 @@ class MenuController extends Controller
         return view('welcome', compact('items'));
     }
 
-
 }
 

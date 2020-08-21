@@ -11,13 +11,14 @@ class CourseController extends Controller
 {
     public function index()
     {
-        if (request()->category){
-            $courses = Course::with('categories')->whereHas('categories', function($query){
+        if (request()->category) {
+            $courses = Course::with('categories')->whereHas('categories', function($query) {
                 $query->where('name', request()->category);
             })->get();
             $categories = Category::all();
             $categoryName = $categories->where('name', request()->category)->first()->name;
-    } else{
+    }
+        else {
             $courses = Course::all();
             //var_dump($courses);
             //dd($courses);
