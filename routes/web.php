@@ -112,4 +112,4 @@ Route::post('answers/edit/{id}', 'AnswerController@update');
 Route::get('answers/delete/{id}', 'AnswerController@delete')->name('answer.delete');
 
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-Route::get('menu','MenuController@index');
+//Route::get('menu','MenuController@index');

@@ -35,13 +35,6 @@
                             @endif
                             <li><a href="#search" class="search-btn"><i class="icofont-search-2"></i></a></li>
                         </ul>
-                        <ul>
-                            @foreach($items as $item)
-                                <li>
-                                    <a href="{{$item->link}}">{{$item->name}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
                     </div>
                 </div>
             </nav>
