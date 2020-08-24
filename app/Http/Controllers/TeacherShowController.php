@@ -18,4 +18,5 @@ class TeacherShowController extends Controller
         $details = Teacher::find($id);
         return view('teacher-detail', compact('details'));
     }
+
 }

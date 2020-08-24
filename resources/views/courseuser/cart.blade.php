@@ -15,6 +15,9 @@
         <!-- Start Courses Area -->
         <section class="courses-area ptb-100">
             <div class="container">
+            @if ($courses->isEmpty())
+                <p> There is no course.</p>
+            @else
                 <div class="row">
                     @foreach($courses as $course)
                     <div class="col-lg-4 col-md-6">
@@ -40,9 +43,7 @@
                         </div>
                     </div>
                     @endforeach
-                    
                 </div>
-
                 <form action="{{ route('order.store') }}" method="post">
                 {!! csrf_field() !!}
                     <input type="hidden" name="user_id" value="{{ $cart->user_id }}">
@@ -53,8 +54,8 @@
                     @endforeach
                     <button type="submit" class="button button-plain">Check out! {{ $totalamount->totalamount }} </buton>
                 </form>
-
                 <a class="btn btn-primary" href={{route("cartuserdelete", ['id'=>$cart->id])}} role="button">Delete cart</a>
+            @endif    
             </div>
         </section>
         <!-- End Courses Area -->

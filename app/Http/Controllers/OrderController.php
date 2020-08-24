@@ -9,6 +9,7 @@ use App\Models\Course;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Refund;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class OrderController extends Controller
@@ -29,7 +30,7 @@ class OrderController extends Controller
         $user_course_id = array_column($user_course, 'id');
         $coursefinal_id = array_diff($courses_id,$user_course_id);
         $coursefinalrefund_id = array_intersect($courses_id,$user_course_id);
-        if (!empty($coursefinalrefund_id)){
+        if (!empty($coursefinalrefund_id)) {
             $refund = new Refund;
             $refund->user_id = $order->user_id;
             $refund->save();
@@ -44,7 +45,7 @@ class OrderController extends Controller
             $order->save();
             return back()->with('status', 'Order approved!!!');
         }
-        else{
+        else {
             $user->courses()->attach($coursefinal_id);
             $order->status = 0;
             $order->save();
@@ -58,6 +59,14 @@ class OrderController extends Controller
         $order->status = 2;
         $order->save();
         return back()->with('status', 'Order denied!!!');
+    }
+
+    public function userorder()
+    {
+        $user_id = Auth::id();
+        $user = User::whereId($user_id)->firstOrFail();
+        $orders = $user->orders()->get();
+        return view('orders.userorder', compact('orders'));
     }
 
 }

@@ -18,15 +18,15 @@ class MyCourseController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        if ($user_id === null){
+        if ($user_id === null) {
             return back()->with('status', 'Plz log in!');
         }
-        else{
-            if(request()->category){
+        else {
+            if (request()->category) {
                 $user = User::whereId($user_id)->first();
                 $usercourses = $user->courses()->get()->toArray();
                 $usercourses_id = array_column($usercourses, 'id');
-                $categorycourses = Course::with('categories')->whereHas('categories', function($query){
+                $categorycourses = Course::with('categories')->whereHas('categories', function($query) {
                     $query->where('name', request()->category);})->get()->toArray();
                 $categorycourses_id = array_column($categorycourses, 'id');
                 $coursefinal_id = array_intersect($categorycourses_id, $usercourses_id);
@@ -35,7 +35,7 @@ class MyCourseController extends Controller
                 $categories = Category::all();
                 return view('mycourse.index', compact('mycourses', 'categories', 'categoryName'));        
             }
-            else{
+            else {
                 $user = User::whereId($user_id)->first();
                 $mycourses = $user->courses()->get();
                 $categories = Category::all();
@@ -52,14 +52,14 @@ class MyCourseController extends Controller
         $usercourses = $user->courses()->get()->toArray();
         $usercourses_id = array_column($usercourses, 'id');
         $course = Course::whereId($id)->first();
-        if ($user_id === null){
+        if ($user_id === null) {
             return redirect('/home');
         }
-        else{
-            if(!in_array($course->id, $usercourses_id)){
+        else {
+            if (!in_array($course->id, $usercourses_id)) {
                 return redirect('/home');
             }
-            else{
+            else {
                 $lessons = $course->lessons()->get();
                 return view('mycourse.lesson', compact('course', 'lessons'));
             }
@@ -69,18 +69,18 @@ class MyCourseController extends Controller
     public function lesson($id, $lesson_id)
     {
         $user_id = Auth::id();
-        if ($user_id === null){
+        if ($user_id === null) {
             return redirect('/home');
         }
-        else{
+        else {
             $user = User::whereId($user_id)->first();
             $usercourses = $user->courses()->get()->toArray();
             $usercourses_id = array_column($usercourses, 'id');
             $course = Course::whereId($id)->first();
-            if(!in_array($course->id, $usercourses_id)){
+            if (!in_array($course->id, $usercourses_id)) {
                 return redirect('/home');
             }
-            else{
+            else {
                 $lesson = Lesson::whereId($lesson_id)->first();
                 return view('mycourse.content', compact('course', 'lesson'));
             }
@@ -90,20 +90,20 @@ class MyCourseController extends Controller
     public function exam($id, $lesson_id)
     {
         $user_id = Auth::id();
-        if ($user_id === null){
+        if ($user_id === null) {
             return redirect('/home');
         }
-        else{
+        else {
             $user = User::whereId($user_id)->first();
             $usercourses = $user->courses()->get()->toArray();
             $usercourses_id = array_column($usercourses, 'id');
             $course = Course::whereId($id)->first();
-            if(!in_array($course->id, $usercourses_id)){
+            if (!in_array($course->id, $usercourses_id)) {
                 return redirect('/home');
             }
-            else{
+            else {
                 $lesson = Lesson::whereId($lesson_id)->first();
-                $questions = Question::with(['lesson', 'answers'=> function ($query) { $query->inRandomOrder();}])
+                $questions = Question::with(['lesson', 'answers'=> function ($query) {$query->inRandomOrder();}])
                         ->whereHas('lesson', function($query) use($lesson) {$query->where('id', $lesson->id);})->inRandomOrder()->get();
                 return view('mycourse.exam', compact('questions'));
             }
@@ -121,13 +121,17 @@ class MyCourseController extends Controller
         $def = count($answers);
         //dd($result);
         //dd($def);   
-        $questions = $answers->mapWithKeys(function($answer){
+        $questionanswers = $answers->mapWithKeys(function($answer) {
             return [$answer->question_id => [
                 'answer_id' => $answer->id,
-                'status' => $answer->status
+                'status' => $answer->status,
             ]];
         })->toArray();
+        //dd($questionanswers);
+        $questions = Question::find(array_keys($request->get('questions')));
         //dd($questions);
-        return back()->withInput()->with('status', "Your score is  $result/$def ");  
+        $score = "$result/$def";
+        return view('mycourse.result', compact('questions', 'questionanswers', 'score'))->with('status', "Your score is $result/$def");  
     }
+
 }

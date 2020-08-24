@@ -13,4 +13,5 @@ class MenuController extends Controller
         $items = Menu::all();
         return View('layout.header', compact('items'));
     }
+
 }

@@ -67,10 +67,10 @@ Route::post('course/{id}', 'CourseUserController@store')->name('cart.store');
 Route::get('cart', 'CourseUserController@showcart')->name('order');
 Route::post('cart', 'CourseUserController@storeorder')->name('order.store');
 Route::get('cart/{id}', 'CourseUserController@dropcourse')->name('cart.dropcourse');
-
 Route::get('cart/delete/{id}', 'CourseUserController@delete')->name('cartuserdelete');
 
 Route::get('orders', 'OrderController@index')->name('order.index');
+Route::get('order', 'OrderController@userorder');
 
 Route::get('orders/deny/{id}', 'OrderController@deny')->name('order.deny');
 Route::get('orders/approve/{id}', 'OrderController@approve')->name('order.approve');
@@ -83,6 +83,7 @@ Route::get('mycourse/course/{id}', 'MyCourseController@course')->name('mycourse.
 Route::get('mycourse/course/{id}/lesson/{lesson_id}', 'MyCourseController@lesson')->name('mycourse.lesson');
 Route::get('mycourse/course/{id}/lesson/{lesson_id}/exam', 'MyCourseController@exam')->name('mycourse.exam');
 Route::post('mycourse/course/{id}/lesson/{lesson_id}/exam', 'MyCourseController@storeexam');
+Route::get('mycourse/course/exam', 'MyCourseController@storeexam')->name('mycourse.result');
 
 Route::get('lessons', 'LessonController@index')->name('lesson.index');
 Route::get('lessons/create', 'LessonController@create')->name('lesson.create');
