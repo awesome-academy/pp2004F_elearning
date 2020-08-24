@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layout.master')
 @section('content')
          <!-- Start Page Title Area -->
          <div class="page-title">

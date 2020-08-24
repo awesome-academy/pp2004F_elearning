@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layout.master')
 @section('content')
     <div class="page-title">
         <div class="d-table">
@@ -34,9 +34,6 @@
                                 <button type="submit" class="btn btn-primary">Add to Cart</button>
                             </form>
 
-                            <div class="add-to-wishlist">
-                                <button type="submit" class="btn btn-primary">Add to Wishlist</button>
-                            </div>
 
                             <div class="category">
                                 <span>Category:</span>

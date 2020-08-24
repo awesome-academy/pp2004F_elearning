@@ -30,16 +30,16 @@ Route::get('teachers/delete/{id}', 'TeacherController@delete')->name('teacherdel
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
+Route::get('users/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('users/register', 'Auth\RegisterController@register');
-Route::get('users/logout', 'Auth\LoginController@logout');
-Route::get('users/login', 'Auth\LoginController@showLoginForm');
+Route::get('users/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login-form');
 Route::post('users/login', 'Auth\LoginController@login')->name('login');
 
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
     Route::get('users', 'UsersController@index')->name('user-index');
-    Route::get('roles', 'RolesController@index');
-    Route::get('roles/create', 'RolesController@create');
+    Route::get('roles', 'RolesController@index')->name('roles');
+    Route::get('roles/create', 'RolesController@create')->name('create-roles');
     Route::post('roles/create', 'RolesController@store');
     Route::get('users/{id?}/edit', 'UsersController@edit');
     Route::post('users/{id?}/edit', 'UsersController@update');
@@ -64,7 +64,7 @@ Route::get('courses/delete/{id}', 'CourseController@delete')->name('coursedelete
 Route::get('course', 'CourseUserController@index')->name('courseuser.index');
 Route::get('course/{id}', 'CourseUserController@show');
 Route::post('course/{id}', 'CourseUserController@store')->name('cart.store');
-Route::get('cart', 'CourseUserController@showcart');
+Route::get('cart', 'CourseUserController@showcart')->name('order');
 Route::post('cart', 'CourseUserController@storeorder')->name('order.store');
 Route::get('cart/{id}', 'CourseUserController@dropcourse')->name('cart.dropcourse');
 
@@ -110,3 +110,6 @@ Route::post('answers/create', 'AnswerController@store');
 Route::get('answers/edit/{id}', 'AnswerController@edit');
 Route::post('answers/edit/{id}', 'AnswerController@update');
 Route::get('answers/delete/{id}', 'AnswerController@delete')->name('answer.delete');
+
+Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+//Route::get('menu','MenuController@index');
