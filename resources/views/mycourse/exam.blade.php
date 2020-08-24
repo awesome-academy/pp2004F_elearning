@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layut.master')
 @section('content')
 <!-- Start Main Banner Area -->
 <div class="main-home-area">
