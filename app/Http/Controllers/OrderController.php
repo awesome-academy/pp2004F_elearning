@@ -9,6 +9,7 @@ use App\Models\Course;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Refund;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class OrderController extends Controller
@@ -58,6 +59,14 @@ class OrderController extends Controller
         $order->status = 2;
         $order->save();
         return back()->with('status', 'Order denied!!!');
+    }
+
+    public function userorder()
+    {
+        $user_id = Auth::id();
+        $user = User::whereId($user_id)->firstOrFail();
+        $orders = $user->orders()->get();
+        return view('orders.userorder', compact('orders'));
     }
 
 }

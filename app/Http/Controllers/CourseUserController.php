@@ -22,7 +22,7 @@ class CourseUserController extends Controller
             })->get();
             $categories = Category::all();
             $categoryName = $categories->where('name', request()->category)->first()->name;
-        }
+        } 
         else {
             $courses = Course::all();
             $categories = Category::all();
@@ -43,12 +43,12 @@ class CourseUserController extends Controller
     {
         $user_id = Auth::id();
         if ($user_id === null) {
-            return back()->with('status', 'You must log in to add course to cart!!');
+            return back()->with('status', "You must log in to add course to cart!!");
         }
         else {
             $course = $request->get('course_id');
             if (DB::table('course_user')->where(function($query) use($course,$user_id) {$query->where('course_id', $course)
-                ->where('user_id', $user_id);})->exists()){
+                ->where('user_id', $user_id);})->exists()) {
                     return back()->with('status', 'You already got this course!!');
             }
             else {
@@ -74,8 +74,7 @@ class CourseUserController extends Controller
         }    
     }
 
-    public function showcart()
-    {
+    public function showcart() {
         $user_id = Auth::id();
         if ($user_id === null) {
             return redirect(route('courseuser.index'))->with('status', 'Plz log in!!');

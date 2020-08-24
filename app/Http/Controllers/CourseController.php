@@ -17,7 +17,7 @@ class CourseController extends Controller
             })->get();
             $categories = Category::all();
             $categoryName = $categories->where('name', request()->category)->first()->name;
-    }
+        }
         else {
             $courses = Course::all();
             //var_dump($courses);
@@ -74,4 +74,5 @@ class CourseController extends Controller
         $course->delete();
         return redirect('courses');
     }
+
 }

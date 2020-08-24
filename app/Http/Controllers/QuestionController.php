@@ -96,4 +96,5 @@ class QuestionController extends Controller
         $answer->delete();
         return redirect()->route('question.answer', $abc);
     }
+
 }

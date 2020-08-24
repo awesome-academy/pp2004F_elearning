@@ -22,7 +22,7 @@ class MyCourseController extends Controller
             return back()->with('status', 'Plz log in!');
         }
         else {
-            if(request()->category) {
+            if (request()->category) {
                 $user = User::whereId($user_id)->first();
                 $usercourses = $user->courses()->get()->toArray();
                 $usercourses_id = array_column($usercourses, 'id');
@@ -121,14 +121,17 @@ class MyCourseController extends Controller
         $def = count($answers);
         //dd($result);
         //dd($def);   
-        $questions = $answers->mapWithKeys(function($answer) {
+        $questionanswers = $answers->mapWithKeys(function($answer) {
             return [$answer->question_id => [
                 'answer_id' => $answer->id,
                 'status' => $answer->status,
             ]];
         })->toArray();
+        //dd($questionanswers);
+        $questions = Question::find(array_keys($request->get('questions')));
         //dd($questions);
-        return back()->withInput()->with('status', 'Your score is  $result/$def');  
+        $score = "$result/$def";
+        return view('mycourse.result', compact('questions', 'questionanswers', 'score'))->with('status', "Your score is $result/$def");  
     }
-    
+
 }

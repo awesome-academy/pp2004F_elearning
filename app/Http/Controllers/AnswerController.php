@@ -50,5 +50,5 @@ class AnswerController extends Controller
         $answer->delete();
         return redirect('answers');
     }
-    
+
 }

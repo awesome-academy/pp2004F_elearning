@@ -31,53 +31,12 @@
         <!-- End Main Banner Area -->
 
         @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-    @endif
-
-    <!-- Start Boxes Area -->
-        <section class="boxes-area">
-            <div class="container">
-                <div class="boxes-inner-content">
-
-
+                <div class="alert alert-success">
+                    {{ session('status') }}
                 </div>
-            </div>
+        @endif
+        
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3">
-                        <div class="fun-fact">
-                            <h3><span class="count">2500</span>+</h3>
-                            <h5>Students</h5>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-3">
-                        <div class="fun-fact">
-                            <h3><span class="count">100</span>+</h3>
-                            <h5>Teachers</h5>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-3">
-                        <div class="fun-fact">
-                            <h3><span class="count">55</span>+</h3>
-                            <h5>Winnings Awards</h5>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-3">
-                        <div class="fun-fact">
-                            <h3><span class="count">1236</span>+</h3>
-                            <h5>Certified Students</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Boxes Area -->
 
         <!-- Start Popular Courses Area -->
         <section class="popular-courses-area ptb-100">
