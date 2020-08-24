@@ -507,7 +507,6 @@
             @include('admin.layout.footer')
         </div>
         <!-- Page Container END -->
-
     </div>
 </div>0
 </body>

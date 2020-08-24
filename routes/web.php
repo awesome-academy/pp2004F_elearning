@@ -38,8 +38,8 @@ Route::post('users/login', 'Auth\LoginController@login')->name('login');
 
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
     Route::get('users', 'UsersController@index')->name('user-index');
-    Route::get('roles', 'RolesController@index');
-    Route::get('roles/create', 'RolesController@create');
+    Route::get('roles', 'RolesController@index')->name('roles');
+    Route::get('roles/create', 'RolesController@create')->name('create-roles');
     Route::post('roles/create', 'RolesController@store');
     Route::get('users/{id?}/edit', 'UsersController@edit');
     Route::post('users/{id?}/edit', 'UsersController@update');
@@ -111,3 +111,5 @@ Route::get('answers/edit/{id}', 'AnswerController@edit');
 Route::post('answers/edit/{id}', 'AnswerController@update');
 Route::get('answers/delete/{id}', 'AnswerController@delete')->name('answer.delete');
 
+Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('menu','MenuController@index');

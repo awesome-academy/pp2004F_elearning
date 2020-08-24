@@ -21,8 +21,6 @@
     <link href="{{asset('/admin/css/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('/admin/css/app.css')}}" rel="stylesheet">
     <!-- core css -->
-s
-
     <style>
         .btn-none{
             border: 0;
