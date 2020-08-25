@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
     <title>EduField - Education & Online Courses HTML Template</title>
 

@@ -20,6 +20,7 @@
     <link href="{{asset('/admin/css/materialdesignicons.min.css')}}" rel="stylesheet">
     <link href="{{asset('/admin/css/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('/admin/css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('/admin/css/style.css')}}" rel="stylesheet">
     <!-- core css -->
     <style>
         .btn-none{

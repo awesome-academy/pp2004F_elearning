@@ -27,5 +27,10 @@ class ComposerServiceProvider extends ServiceProvider
             'layout.header',
             'App\Http\ViewComposers\HeaderComposer'
         );
+
+        view()->composer(
+            'layout.header',
+            'App\Http\ViewComposers\LogoComposer'
+        );
     }
 }
