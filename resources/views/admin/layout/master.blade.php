@@ -508,12 +508,13 @@
         </div>
         <!-- Page Container END -->
     </div>
-</div>0
+</div>
+0
 </body>
-
 <script src="{{asset('/admin/js/vendor.js')}}"></script>
 <script src="{{asset('/admin/js/app.min.js')}}"></script>
 <script src="{{asset('/admin/vendor/chart.js/dist/Chart.min.js')}}"></script>
 <script src="{{asset('/admin/vendor/jquery.sparkline/jquery.sparkline.min.js')}}"></script>
 <script src="{{asset('/admin/js/dashboard/default.js')}}"></script>
+<script src="{{asset('/admin/js/image.js')}}"></script>
 </html>

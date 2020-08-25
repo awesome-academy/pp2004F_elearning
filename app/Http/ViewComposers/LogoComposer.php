@@ -3,19 +3,19 @@
 namespace App\Http\ViewComposers;
 
 use Illuminate\View\View;
-use App\Models\Menu;
+use App\Models\Logo;
 
-class HeaderComposer
+class LogoComposer
 {
-    public $menus = [];
+    public $logo = [];
 
     public function __construct()
     {
-        $this->menus = Menu::all();
+        $this->logo = Logo::all();
     }
 
     public function compose(View $view)
     {
-        $view->with('menus', $this->menus);
+        $view->with('logo', $this->logo);
     }
 }

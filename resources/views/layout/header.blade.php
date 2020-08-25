@@ -3,9 +3,11 @@
         <div class="classy-nav-container breakpoint-off">
             <!-- Classy Menu -->
             <nav class="classy-navbar justify-content-between" id="EduStudyNav">
-                <!-- Logo -->
-                <a class="nav-brand" href="/"><img src="" alt="logo"></a>
-
+                <div class="logo-cus">
+                    @foreach($logo as $item)
+                        <a class="nav-brand" href="/"><img src="{{ url('images/'.$item->image)}}" alt="logo"></a>
+                    @endforeach
+                </div>
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">
                     <span class="navbarToggler"><span></span></span>

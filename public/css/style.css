@@ -1,3 +1,9 @@
 .custom-control-label::after, .custom-control-label::before {
     display: none;
 }
+.logo-cus{
+    width: 120px;
+}
+.logo-cus img{
+    width: 100%;
+}
