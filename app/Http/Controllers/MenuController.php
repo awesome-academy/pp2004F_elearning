@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Config\Menu\MenuRepository;
 use Illuminate\Http\Request;
-use App\Models\Menu;
 
 class MenuController extends Controller
 {
+    protected $menuRepo;
+
+    public function __construct(MenuRepository $menuRepo)
+    {
+        $this->menuRepo = $menuRepo;
+    }
+
     public function index()
     {
-        $items = Menu::all();
+        $items = $this->menuRepo->index();
         return view('config.menu.index', compact('items'));
     }
 
@@ -20,18 +27,12 @@ class MenuController extends Controller
 
     public function store(Request $request)
     {
-        $new = new Menu;
-        $new->name = $request->name;
-        $new->link = $request->link;
-        $new->save();
-        return redirect('menu/create');
-    }
-
-    public function delete($id)
-    {
-        $del = Menu::find($id);
-        $del->delete();
+        $create = $this->menuRepo->create($request->all());
         return redirect('menu');
     }
 
+    public function delete($id){
+        $delete=$this->menuRepo->find($id)->delete();
+        return redirect('menu');
+    }
 }

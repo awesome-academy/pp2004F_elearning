@@ -16,7 +16,7 @@ This files contents are outlined below>>>>>
 
 ** - Default CSS
 ** - Preloader Area CSS
-** - Main Menu Area CSS
+** - Main Config Area CSS
 ** - Search Popup Area CSS
 ** - Main Home Area CSS
 ** - Main Banner Area CSS
@@ -397,7 +397,7 @@ Preloader Area CSS
 }
 /*
 ======================================
-Main Menu Area CSS
+Main Config Area CSS
 ======================================
 */
 .header-sticky.is-sticky {

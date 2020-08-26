@@ -17,9 +17,8 @@
             </div>
         </div>
         <div class="col-md-5">
-            @foreach($show as $item)
-                <a href="{{route('logoEdit', $item->id)}}">Edit</a>
-            @endforeach
+            <div><a href="{{route('logoCreate')}}">Create</a></div>
+            <div><a href="{{route('logoEdit', $item->id)}}">Edit</a></div>
         </div>
     </div>
 @endsection
