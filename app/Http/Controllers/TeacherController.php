@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Teacher;
-
+use App\Repository\TeacherRepositoryInterface;
 class TeacherController extends Controller
 {
+    private $teacherRepository;
+
+    public function __construct(TeacherRepositoryInterface $teacherRepository)
+    {
+        $this->teacherRepository = $teacherRepository;
+
+    }
+
     public function index()
     {
-        $teachers = Teacher::all();
+        $teachers = $this->teacherRepository->all();
         return view('teachers.index', compact('teachers')) ;
     }
 
@@ -20,7 +27,20 @@ class TeacherController extends Controller
 
     public function store(Request $request)
     {
-        $teacher = new Teacher;
+        // $teacher["name"] = $request->get('name');
+        // $teacher["email"] = $request->get('email');
+        // $teacher["phone"] = $request->get('phone');
+        // $teacher["about"] = $request->get('about');
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $path = $image->getClientOriginalExtension();
+        //     $name = time() . "." . $path;
+        //     $image->move('images', $name);
+        //     $teacher["image"] = $name;
+        // }
+        // $this->teacherRepository->create($teacher);
+        $teacher = $this->teacherRepository->newmodel();
+        //dd($teacher);
         $teacher->name = $request->get('name');
         $teacher->email = $request->get('email');
         $teacher->phone = $request->get('phone');
@@ -32,19 +52,21 @@ class TeacherController extends Controller
             $image->move('images', $name);
             $teacher->image = $name;
         }
+        //dd($teacher);
         $teacher->save();
+
         return redirect()->route('teachers-index');
     }
 
     public function edit($id)
     {
-        $teacher = Teacher::whereId($id)->firstOrFail();
+        $teacher = $this->teacherRepository->find($id);
         return view('teachers/edit', compact('teacher'));
     }
 
     public function update(Request $request, $id)
     {
-        $teacher = Teacher::find($id);
+        $teacher = $this->teacherRepository->find($id);
         $teacher->name = $request->get('name');
         $teacher->email = $request->get('email');
         $teacher->phone = $request->get('phone');
@@ -62,7 +84,7 @@ class TeacherController extends Controller
 
     public function delete($id)
     {
-        $teacher = Teacher::whereId($id);
+        $teacher = $this->teacherRepository->find($id);
         $teacher->delete();
         return redirect('teachers');
     }
