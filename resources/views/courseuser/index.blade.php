@@ -34,7 +34,7 @@
                                     data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">{{ $categoryName }}</button>
 
-                            <!--Menu-->
+                            <!--Config-->
                             <div class="dropdown-menu dropdown-primary">
                                 <a class="dropdown-item" href="{{ route('courseuser.index') }}">All courses</a>
                                 @foreach ($categories as $category)

@@ -1,7 +1,7 @@
 <div class="main-header-area header-sticky">
     <div class="container">
         <div class="classy-nav-container breakpoint-off">
-            <!-- Classy Menu -->
+            <!-- Classy Config -->
             <nav class="classy-navbar justify-content-between" id="EduStudyNav">
                 <div class="logo-cus">
                     @foreach($logo as $item)
@@ -12,7 +12,7 @@
                 <div class="classy-navbar-toggler">
                     <span class="navbarToggler"><span></span></span>
                 </div>
-                <!-- Menu -->
+                <!-- Config -->
                 <div class="classy-menu">
 
                     <!-- close btn -->
@@ -26,16 +26,16 @@
                             @foreach($menus as $menu)
                                 <li><a href="{{$menu->link}}">{{$menu->name}}</a></li>
                             @endforeach
-
-                            @if(Auth::check())
-                                @role('user')
-                                <li><a href="{{route('order')}}">Order</a></li>
-                                <li><a href="{{route('logout')}}">Logout</a></li>
-                                @endrole
-                            @else
-                                <li><a href="{{route('login-form')}}">Login</a></li>
-                                <li><a href="{{route('register')}}">register</a></li>
-                            @endif
+                                @if(Auth::check())
+                                    @role('user')
+                                    <li><a href="{{route('order')}}">Order</a></li>
+                                    <li><a href="{{route('logout')}}">Logout</a></li>
+                                    <li><a href="{{route('mycourse.index')}}">My Course</a></li>
+                                    @endrole
+                                @else
+                                    <li><a href="{{route('login-form')}}">Login</a></li>
+                                    <li><a href="{{route('register')}}">register</a></li>
+                                @endif
 
                             <li><a href="#search" class="search-btn"><i class="icofont-search-2"></i></a></li>
                         </ul>

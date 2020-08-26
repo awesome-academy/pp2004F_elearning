@@ -70,11 +70,11 @@
         </div>
         <!-- End Preloader Area -->
        
-        <!-- Start Main Menu Area -->
+        <!-- Start Main Config Area -->
         <div class="main-header-area header-sticky">
             <div class="container">
 				<div class="classy-nav-container breakpoint-off">
-					<!-- Classy Menu -->
+					<!-- Classy Config -->
 					<nav class="classy-navbar justify-content-between" id="EduStudyNav">
 
 						<!-- Logo -->
@@ -85,7 +85,7 @@
 							<span class="navbarToggler"><span></span><span></span><span></span></span>
 						</div>
 
-						<!-- Menu -->
+						<!-- Config -->
 						<div class="classy-menu">
 
 							<!-- close btn -->
@@ -225,7 +225,7 @@
 				</div>
 			</div>
         </div>
-        <!-- End Main Menu Area -->
+        <!-- End Main Config Area -->
         
         <!-- Start Search Popup Area -->
         <div id="search-area">
