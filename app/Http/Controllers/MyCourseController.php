@@ -112,24 +112,16 @@ class MyCourseController extends Controller
 
     public function storeexam(Request $request)
     {
-        //$abc = $request->get('questions');
-        //dd($abc);
         $answers = Answer::find(array_values($request->get('questions')));
-        //var_dump($answers);
-        //dd($answers);
         $result = $answers->sum('status');
         $def = count($answers);
-        //dd($result);
-        //dd($def);   
         $questionanswers = $answers->mapWithKeys(function($answer) {
             return [$answer->question_id => [
                 'answer_id' => $answer->id,
                 'status' => $answer->status,
             ]];
         })->toArray();
-        //dd($questionanswers);
         $questions = Question::find(array_keys($request->get('questions')));
-        //dd($questions);
         $score = "$result/$def";
         return view('mycourse.result', compact('questions', 'questionanswers', 'score'))->with('status', "Your score is $result/$def");  
     }

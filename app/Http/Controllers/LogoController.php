@@ -56,6 +56,6 @@ class LogoController extends Controller
             $edit->image = $name;
         }
         $edit->save();
-        return redirect()->route('logo');
+        return redirect()->route('logoIndex');
     }
 }

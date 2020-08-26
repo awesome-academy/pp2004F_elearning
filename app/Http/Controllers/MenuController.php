@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Config\Menu\MenuRepository;
 use App\Repositories\Config\Menu\MenuRepositoryInterface;
 use Illuminate\Http\Request;
 

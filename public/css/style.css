@@ -1,9 +1,30 @@
 .custom-control-label::after, .custom-control-label::before {
     display: none;
 }
-.logo-cus{
+
+.logo-cus {
     width: 120px;
 }
-.logo-cus img{
+
+.logo-cus img {
     width: 100%;
+}
+
+.exam-content {
+    padding: 50px 0;
+}
+
+.single-courses-item{
+    position: relative;
+}
+
+.price{
+    position: absolute;
+    right: 15px;
+    bottom: 25px;
+}
+
+.checkout-cart{
+    display: table;
+    margin: 50px auto 0;
 }

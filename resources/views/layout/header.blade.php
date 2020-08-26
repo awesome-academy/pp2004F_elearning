@@ -26,17 +26,14 @@
                             @foreach($menus as $menu)
                                 <li><a href="{{$menu->link}}">{{$menu->name}}</a></li>
                             @endforeach
-                                @if(Auth::check())
-                                    @role('user')
-                                    <li><a href="{{route('order')}}">Order</a></li>
-                                    <li><a href="{{route('logout')}}">Logout</a></li>
-                                    <li><a href="{{route('mycourse.index')}}">My Course</a></li>
-                                    @endrole
-                                @else
-                                    <li><a href="{{route('login-form')}}">Login</a></li>
-                                    <li><a href="{{route('register')}}">register</a></li>
-                                @endif
-
+                            @if(Auth::check())
+                                <li><a href="{{route('order')}}">Order</a></li>
+                                <li><a href="{{route('userOrder')}}">user order</a></li>
+                                <li><a href="{{route('logout')}}">Logout</a></li>
+                            @else
+                                <li><a href="{{route('login-form')}}">Login</a></li>
+                                <li><a href="{{route('register')}}">register</a></li>
+                            @endif
                             <li><a href="#search" class="search-btn"><i class="icofont-search-2"></i></a></li>
                         </ul>
                     </div>

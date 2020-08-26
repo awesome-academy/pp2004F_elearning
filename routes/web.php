@@ -70,7 +70,7 @@ Route::get('cart/{id}', 'CourseUserController@dropcourse')->name('cart.dropcours
 Route::get('cart/delete/{id}', 'CourseUserController@delete')->name('cartuserdelete');
 
 Route::get('orders', 'OrderController@index')->name('order.index');
-Route::get('order', 'OrderController@userorder');
+Route::get('order', 'OrderController@userorder')->name('userOrder');
 
 Route::get('orders/deny/{id}', 'OrderController@deny')->name('order.deny');
 Route::get('orders/approve/{id}', 'OrderController@approve')->name('order.approve');
@@ -121,8 +121,8 @@ Route::get('menu/edit{id}', 'MenuController@edit')->name('menuEdit');
 Route::post('menu/update/{id}', 'MenuController@update')->name('menuUpdate');
 Route::get('menu/delete/{id}', 'MenuController@delete')->name('menuDelete');
 
-Route::get('logo', 'LogoController@index')->name('logo');
-Route::get('logo/create/', 'LogoController@create')->name('logoCreate');
-Route::post('logo/create/', 'LogoController@store')->name('logoStore');
-Route::get('logo/{id}', 'LogoController@edit')->name('logoEdit');
-Route::post('logo/{id}', 'LogoController@update')->name('logoUpdate');
+Route::get('logo', 'LogoController@index')->name('logoIndex');
+Route::get('logo/create', 'LogoController@create')->name('logoCreate');
+Route::post('logo/create', 'LogoController@store')->name('logoStore');
+Route::get('logo/edit/{id}', 'LogoController@edit')->name('logoEdit');
+Route::post('logo/edit/{id}', 'LogoController@update')->name('logoUpdate');
