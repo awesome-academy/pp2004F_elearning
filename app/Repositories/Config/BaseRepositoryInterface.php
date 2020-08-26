@@ -9,9 +9,11 @@ interface BaseRepositoryInterface
 
     public function find($id, $columns = ['*']);
 
-    public function store(array $input);
-
     public function update(array $input, $id);
 
     public function delete($id);
+
+    public function save();
+
+    public function takeModel();
 }

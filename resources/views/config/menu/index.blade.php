@@ -24,6 +24,7 @@
                                     {{ csrf_field() }}
                                     @method('GET')
                                     <button class="text-gray btn-none"><i class="ti-trash"></i></button>
+                                    &nbsp <a href="{{route('menuEdit', $item->id)}}" class="text-gray m-r-15"><i class="ti-pencil"></i></a>
                                 </form>
                             </td>
                         </tr>

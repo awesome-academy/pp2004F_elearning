@@ -117,10 +117,12 @@ Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('menu', 'MenuController@index')->name('menuIndex');
 Route::get('menu/create', 'MenuController@create')->name('menuCreate');
 Route::post('menu/create', 'MenuController@store')->name('menuStore');
+Route::get('menu/edit{id}', 'MenuController@edit')->name('menuEdit');
+Route::post('menu/update/{id}', 'MenuController@update')->name('menuUpdate');
 Route::get('menu/delete/{id}', 'MenuController@delete')->name('menuDelete');
 
 Route::get('logo', 'LogoController@index')->name('logo');
 Route::get('logo/create/', 'LogoController@create')->name('logoCreate');
-Route::post('logo/create/', 'LogoController@store');
+Route::post('logo/create/', 'LogoController@store')->name('logoStore');
 Route::get('logo/{id}', 'LogoController@edit')->name('logoEdit');
 Route::post('logo/{id}', 'LogoController@update')->name('logoUpdate');

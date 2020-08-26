@@ -18,9 +18,4 @@ class MenuRepository extends BaseRepositoty implements MenuRepositoryInterface
     {
         return Menu::all();
     }
-
-    public function store(array $attr)
-    {
-        return $this->model->create($attr);
-    }
 }
