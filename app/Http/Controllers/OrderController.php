@@ -64,8 +64,9 @@ class OrderController extends Controller
     public function userorder()
     {
         $user_id = Auth::id();
-        $user = User::whereId($user_id)->firstOrFail();
-        $orders = $user->orders()->get();
+        //$user = User::whereId($user_id)->firstOrFail();
+        $orders = Order::whereHas('user', function ($query) use($user_id) {$query->where('id', $user_id);})
+                        ->where('status', 1)->get();
         return view('orders.userorder', compact('orders'));
     }
 
