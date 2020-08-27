@@ -16,8 +16,6 @@
                     {{ session('status') }}
                 </div>
         @endif
-        
-        
         <!-- Start Courses Area -->
         <section class="courses-area ptb-100">
             <div class="container">
@@ -32,24 +30,12 @@
                             <div class="courses-content">
                                 <h3>{{ $lesson->name }}</h3>
                                 <h3><a href={{ route('mycourse.lesson', ['id' => $course->id, 'lesson_id' => $lesson->id])}}>Start learning!!</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
                     @endforeach
-                    
-                    
-                    
-                   
                 </div>
             </div>
         </section>
         <!-- End Courses Area -->
-
 @endsection

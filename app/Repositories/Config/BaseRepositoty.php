@@ -34,13 +34,6 @@ abstract class BaseRepositoty implements BaseRepositoryInterface
         return $result;
     }
 
-    public function create(array $attr)
-    {
-        // TODO: Implement create() method.
-        $result = $this->model->create($attr);
-        return $result;
-    }
-
     public function update(array $attr, $id)
     {
         // TODO: Implement update() method.
@@ -59,5 +52,17 @@ abstract class BaseRepositoty implements BaseRepositoryInterface
             $result->delete();
         }
         return false;
+    }
+
+    public function save()
+    {
+        // TODO: Implement save() method.
+        return $this->model->save();
+    }
+
+    public function takeModel()
+    {
+        // TODO: Implement takeModel() method.
+        return $this->model;
     }
 }

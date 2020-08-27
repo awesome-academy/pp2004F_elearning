@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Config\Logo\LogoRepositoryInterface;
 use Illuminate\Http\Request;
-use App\Repositories\Config\Logo\LogoRepository;
 
 class LogoController extends Controller
 {
     protected $logoRepo;
 
-    public function __construct(LogoRepository $logoRepoVar)
+    public function __construct(LogoRepositoryInterface $logoRepoVar)
     {
         $this->logoRepo = $logoRepoVar;
     }
@@ -27,6 +27,35 @@ class LogoController extends Controller
 
     public function store(Request $request)
     {
-        return $this->logoRepo->create($request->all());
+        $create = $this->logoRepo->takeModel();
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->getClientOriginalExtension();
+            $name = time() . "." . $path;
+            $image->move('images', $name);
+            $create->image = $name;
+        }
+        $create->save();
+        return redirect()->route('logo');
+    }
+
+    public function edit($id)
+    {
+        $edit = $this->logoRepo->find($id);
+        return view('config.logo.edit', compact('edit'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $edit = $this->logoRepo->find($id);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->getClientOriginalExtension();
+            $name = time() . "." . $path;
+            $image->move('images', $name);
+            $edit->image = $name;
+        }
+        $edit->save();
+        return redirect()->route('logoIndex');
     }
 }

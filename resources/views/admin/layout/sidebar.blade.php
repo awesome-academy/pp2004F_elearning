@@ -70,30 +70,31 @@
                     </li>
                 </ul>
             </li>
-
-
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
                                     <i class="mdi mdi-grid-large"></i>
                                 </span>
-                    <span class="title">Widgets</span>
+                    <span class="title">Config</span>
                     <span class="arrow">
                                     <i class="mdi mdi-chevron-right"></i>
                                 </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="widgets-data.html">Data Widgets</a>
+                        <a href="{{route('logoIndex')}}">Logo</a>
                     </li>
                     <li>
-                        <a href="widgets-media.html">Media Widgets</a>
+                        <a href="{{route('menuIndex')}}">Menu</a>
                     </li>
                     <li>
-                        <a href="widgets-chart.html">Chart Widgets</a>
+                        <a href="#">Footer</a>
                     </li>
                 </ul>
             </li>
+
+
+
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">

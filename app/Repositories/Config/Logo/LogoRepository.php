@@ -18,9 +18,4 @@ class LogoRepository extends BaseRepositoty implements LogoRepositoryInterface
     {
         return Logo::all();
     }
-
-    public function store(array $attr)
-    {
-        return $this->model->create($attr);
-    }
 }
