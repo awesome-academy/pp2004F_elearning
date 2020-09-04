@@ -53,7 +53,7 @@ class TeacherController extends Controller
             $teacher->image = $name;
         }
         //dd($teacher);
-        $teacher->save();
+        $teacher->{$this->teacherRepository->save()};
 
         return redirect()->route('teachers-index');
     }
@@ -78,7 +78,7 @@ class TeacherController extends Controller
             $image->move('images', $name);
             $teacher->image = $name;
         }
-        $teacher->save();
+        $teacher->{$this->teacherRepository->save()};
         return redirect('teachers');
     }
 

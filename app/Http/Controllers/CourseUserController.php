@@ -86,6 +86,7 @@ class CourseUserController extends Controller
             }
             else {
                 $courses = $cart->courses()->get();
+                //dd($courses);
                 $totalamount = DB::table('cart_course')->where('cart_id', $cart->id)
                                                  ->join('courses', 'cart_course.course_id', '=', 'courses.id')
                                                  ->selectRaw('SUM(price) as totalamount')->first();

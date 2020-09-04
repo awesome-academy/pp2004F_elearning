@@ -16,4 +16,9 @@ class Answer extends Model
     {
         return $this->belongsTo('App\Models\Question');
     }
+
+    public function results()
+    {
+        return $this->belongsToMany('App\Models\Result');
+    }
 }

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Question;
 use App\Models\Answer;
+use App\Models\Result;
 
 class MyCourseController extends Controller
 {
@@ -113,6 +114,8 @@ class MyCourseController extends Controller
     public function storeexam(Request $request)
     {
         $answers = Answer::find(array_values($request->get('questions')));
+        $answers_array_id = array_column(Answer::find(array_values($request->get('questions')))->toArray(), 'id');
+        //dd($answers_array_id);
         $result = $answers->sum('status');
         $def = count($answers);
         $questionanswers = $answers->mapWithKeys(function($answer) {
@@ -122,8 +125,53 @@ class MyCourseController extends Controller
             ]];
         })->toArray();
         $questions = Question::find(array_keys($request->get('questions')));
+        $questions_array = Question::find(array_keys($request->get('questions')))->toArray();
+        $questions_array_id = array_column($questions_array, 'id');
+        //dd($questions_array_id[0]);
+        $question = Question::whereId($questions_array_id[0])->first();
+        //dd($question);
+        $lesson = $question->lesson()->first();
+        //dd($lesson);
         $score = "$result/$def";
+        $userresult = new Result;
+        $userresult->user_id = Auth::id();
+        $userresult->lesson_id =  $lesson->id;
+        $userresult->result = "$result/$def";
+        $userresult->save();
+        $userresult->answers()->attach($answers_array_id);
         return view('mycourse.result', compact('questions', 'questionanswers', 'score'))->with('status', "Your score is $result/$def");  
+    }
+
+    public function myresult()
+    {
+        $user_id = Auth::id();
+        if ($user_id === null) {
+            return redirect('/home');
+        }
+        else {
+            $user = User::whereId($user_id)->first();
+            $results = $user->results()->get();
+            return view('mycourse.myresult', compact('results'));
+        }
+    }
+
+    public function myresultdetail($id)
+    {
+        $user_id = Auth::id();
+        if ($user_id === null) {
+            return redirect('/home');
+        }
+        else {
+            $user = User::whereId($user_id)->first();
+            $result = Result::whereId($id)->first();
+            if (!$user->id === $result->user_id) {
+                return redirect('/home');
+            }
+            else {
+                $answers = $result->answers()->get();
+                return view('mycourse.myresultdetail', compact('answers', 'result'));
+            }
+        }
     }
 
 }

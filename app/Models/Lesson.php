@@ -21,4 +21,9 @@ class Lesson extends Model
     {
         return $this->hasMany('App\Models\Question');
     }
+
+    public function results()
+    {
+        return $this->hasMany('App\Models\Result');
+    }
 }

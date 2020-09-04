@@ -35,6 +35,6 @@ class BaseRepository implements EloquentRepositoryInterface
 
     public function save()
     {
-        return $this->mode->save();
+        return $this->model->save();
     }
 }
