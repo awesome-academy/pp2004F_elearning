@@ -13,7 +13,6 @@
                 @if ($questions->isEmpty())
                     <p> There is no question.</p>
                 @else
-
                     <form method="post">
                         @csrf
                         @foreach($questions as $question)
@@ -63,8 +62,8 @@
                             @endif
                         @endforeach
                     </form>
-
-            </div>
+                @endif
+             </div>
         </div>
     </div>
 @endsection

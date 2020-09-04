@@ -83,7 +83,9 @@ Route::get('mycourse/course/{id}', 'MyCourseController@course')->name('mycourse.
 Route::get('mycourse/course/{id}/lesson/{lesson_id}', 'MyCourseController@lesson')->name('mycourse.lesson');
 Route::get('mycourse/course/{id}/lesson/{lesson_id}/exam', 'MyCourseController@exam')->name('mycourse.exam');
 Route::post('mycourse/course/{id}/lesson/{lesson_id}/exam', 'MyCourseController@storeexam');
-Route::get('mycourse/course/exam', 'MyCourseController@storeexam')->name('mycourse.result');
+//Route::get('mycourse/course/exam', 'MyCourseController@storeexam')->name('mycourse.result');
+Route::get('myresult', 'MyCourseController@myresult')->name('myresult');
+Route::get('myresult/{id}', 'MyCourseController@myresultdetail')->name('myresultdetail');
 
 Route::get('lessons', 'LessonController@index')->name('lesson.index');
 Route::get('lessons/create', 'LessonController@create')->name('lesson.create');
