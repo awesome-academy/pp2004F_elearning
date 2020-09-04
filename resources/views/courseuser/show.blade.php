@@ -38,7 +38,9 @@
                             </form>
                             <div class="category">
                                 <span>Category:</span>
-                                {{$categories->name}}
+                                @foreach($categories as $category)
+                                {{$category->name}}
+                                @endforeach
                             </div>
                         </div>
                     </div>

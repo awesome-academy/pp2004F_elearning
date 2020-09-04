@@ -20,8 +20,8 @@
     <div class="container">
         <div class="exam-content">
             <div class="content show" id="tab_1_content">
-                <h4 class="title">Lesson Details</h4>
-                <p> {{ $lesson->content }} </p>
+                <h4 class="title">{{$lesson->title}}</h4>
+                <p>{!! $lesson->content  !!}</p>
             </div>
 
             <a class="btn btn-primary"

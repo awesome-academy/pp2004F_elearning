@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('content')
-    <div class="container col-md-6 col-md-offset-3">
+    <div class="container">
         <div class="well well bs-component">
             <form class="form-horizontal" method="post" enctype="multipart/form-data">
                 @foreach ($errors->all() as	$error)
@@ -24,8 +24,7 @@
                     <div class="form-group">
                         <label for="name" class="col-lg-2 control-label">Description</label>
                         <div class="col-lg-10">
-                            <textarea type="text" class="form-control" id="content" placeholder="Description"
-                                      name="description" rows="10"></textarea>
+                            <textarea class="form-control" id="content" name="description" rows="10" type="textarea"></textarea>
                         </div>
                     </div>
                     @foreach ($categories as $category)
@@ -52,11 +51,11 @@
                         <div class="col-lg-10 col-lg-offset-2">
                             <a href="{{route('course.index')}}" class="btn btn-default">Cancel</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
+                            <a class="btn btn-primary" href={{route("coursedelete", ['id'=>$course->id])}} role="button">Delete</a>
                         </div>
                     </div>
                 </fieldset>
             </form>
-            <a class="btn btn-primary" href={{route("coursedelete", ['id'=>$course->id])}} role="button">Delete</a>
         </div>
     </div>
 @endsection

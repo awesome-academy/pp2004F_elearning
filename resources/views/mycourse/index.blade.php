@@ -34,7 +34,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-courses-item">
                             <div class="courses-img">
-                                <img src="{{asset('images/1596697402.jpg')}}" alt="course">
+                                <img src="{{ url('images/'.$mycourse->image) }}" alt="course">
                             </div>
 
                             <div class="courses-content">

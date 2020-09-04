@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('content')
-<div class="container col-md-6 col-md-offset-3">
+<div class="container">
     <div class="well well bs-component">
         <form class="form-horizontal" method="post">
             @foreach ($errors->all() as	$error)
@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label for="content" class="col-lg-2 control-label">Content</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control"	id="content" name="content" value="{{ $question->content }}">
+                    <textarea class="form-control" id="content" name="content" rows="10"></textarea>
                 </div>
             </div>
             <div class="form-group">

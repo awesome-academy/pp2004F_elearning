@@ -93,8 +93,6 @@
                 </ul>
             </li>
 
-
-
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
@@ -112,47 +110,44 @@
 
                 </ul>
             </li>
-            {{--<li class="nav-item dropdown">--}}
-                {{--<a class="dropdown-toggle" href="javascript:void(0);">--}}
-                                {{--<span class="icon-holder">--}}
-                                    {{--<i class="mdi mdi-tune-vertical"></i>--}}
-                                {{--</span>--}}
-                    {{--<span class="title">Tables</span>--}}
-                    {{--<span class="arrow">--}}
-                                    {{--<i class="mdi mdi-chevron-right"></i>--}}
-                                {{--</span>--}}
-                {{--</a>--}}
-                {{--<ul class="dropdown-menu">--}}
-                    {{--<li>--}}
-                        {{--<a href="basic-table.html">Basic Table</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="data-table.html">Data Table</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
-            {{--<li class="nav-item dropdown">--}}
-                {{--<a class="dropdown-toggle" href="javascript:void(0);">--}}
-                                {{--<span class="icon-holder">--}}
-                                    {{--<i class="mdi mdi-chart-donut"></i>--}}
-                                {{--</span>--}}
-                    {{--<span class="title">Charts</span>--}}
-                    {{--<span class="arrow">--}}
-                                    {{--<i class="mdi mdi-chevron-right"></i>--}}
-                                {{--</span>--}}
-                {{--</a>--}}
-                {{--<ul class="dropdown-menu">--}}
-                    {{--<li>--}}
-                        {{--<a href="chartist.html">Chartist</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="chartjs.html">ChartJs</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="sparkline.html">Sparkline</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-book-open-variant"></i>
+                                </span>
+                    <span class="title">Lessons</span>
+                    <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{{route('lesson.index')}}">All lessons</a>
+                    </li>
+                    <li>
+                        <a href="{{route('lesson.create')}}">Create Lesson</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-format-align-justify"></i>
+                                </span>
+                    <span class="title">Courses</span>
+                    <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{{route('course.index')}}">All courses</a>
+                    </li>
+                    <li>
+                        <a href="{{route('coursecreate')}}">Create course</a>
+                    </li>
+                </ul>
+            </li>
             {{--<li class="nav-item dropdown">--}}
                 {{--<a class="dropdown-toggle" href="javascript:void(0);">--}}
                                 {{--<span class="icon-holder">--}}

@@ -61,7 +61,7 @@ class MyCourseController extends Controller
                 return redirect('/home');
             }
             else {
-                $lessons = $course->lessons()->get();
+                $lessons = $course->lessons()->paginate(6);
                 return view('mycourse.lesson', compact('course', 'lessons'));
             }
         }
