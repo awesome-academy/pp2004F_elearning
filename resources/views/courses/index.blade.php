@@ -29,9 +29,12 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php $i = 1 ?>
                     @foreach($courses as $course)
                         <tr>
-                            <td>{!! $course->id !!}</td>
+                            <td>
+                                {{ $i++ }}
+                            </td>
                             <td>
                                 <a href="{!! action('CourseController@edit', $course->id) !!}">{!! $course->name !!} </a>
                             </td>

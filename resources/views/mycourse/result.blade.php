@@ -1,10 +1,19 @@
-@extends('master')
+@extends('layout.master')
 @section('content')
     @if (session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
         </div>
     @endif
+    <div class="page-title">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <h2> All questions </h2>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -58,12 +67,11 @@
                                         @endif
                                     </div>
                                 @endforeach
-                                <p>Wrong</p>
                             @endif
                         @endforeach
                     </form>
                 @endif
-             </div>
+            </div>
         </div>
     </div>
 @endsection

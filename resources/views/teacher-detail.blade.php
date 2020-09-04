@@ -73,9 +73,9 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="single-teacher-about">
                             <div class="teacher-desc">
-                                <h2>About {{$details->name}}</h2>
+                                <h2>About {!!$details->name!!}</h2>
                                 <p>
-                                    {{$details->about}}
+                                    {!! $details->about !!}
                                 </p>
                             </div>
                         </div>
