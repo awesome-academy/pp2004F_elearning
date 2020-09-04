@@ -41,6 +41,13 @@ class CourseController extends Controller
         $course->description = $request->get('description');
         $course->teacher_id = $request->get('teacher_id');
         $course->price = $request->get('price');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->getClientOriginalExtension();
+            $name = time() . "." . $path;
+            $image->move('images', $name);
+            $course->image = $name;
+        }
         $course->save();
         $category = $request->get('category_id');
         $course->categories()->attach($category);
@@ -61,6 +68,13 @@ class CourseController extends Controller
         $course->description = $request->get('description');
         $course->teacher_id = $request->get('teacher_id');
         $course->price = $request->get('price');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->getClientOriginalExtension();
+            $name = time() . "." . $path;
+            $image->move('images', $name);
+            $course->image = $name;
+        }
         $course->save();
         $course->categories()->detach();
         $category = $request->get('category_id');

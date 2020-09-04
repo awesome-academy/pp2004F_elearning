@@ -100,83 +100,78 @@
                                 <span class="icon-holder">
                                     <i class="mdi mdi-file-outline"></i>
                                 </span>
-                    <span class="title">Forms</span>
+                    <span class="title">Order</span>
                     <span class="arrow">
                                     <i class="mdi mdi-chevron-right"></i>
                                 </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="form-elements.html">Form Elements</a>
+                        <a href="{{route('order.index')}}">All orders</a>
                     </li>
-                    <li>
-                        <a href="form-layouts.html">Form Layouts</a>
-                    </li>
-                    <li>
-                        <a href="form-validation.html">Form Validation</a>
-                    </li>
+
                 </ul>
             </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                                <span class="icon-holder">
-                                    <i class="mdi mdi-tune-vertical"></i>
-                                </span>
-                    <span class="title">Tables</span>
-                    <span class="arrow">
-                                    <i class="mdi mdi-chevron-right"></i>
-                                </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="basic-table.html">Basic Table</a>
-                    </li>
-                    <li>
-                        <a href="data-table.html">Data Table</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                                <span class="icon-holder">
-                                    <i class="mdi mdi-chart-donut"></i>
-                                </span>
-                    <span class="title">Charts</span>
-                    <span class="arrow">
-                                    <i class="mdi mdi-chevron-right"></i>
-                                </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="chartist.html">Chartist</a>
-                    </li>
-                    <li>
-                        <a href="chartjs.html">ChartJs</a>
-                    </li>
-                    <li>
-                        <a href="sparkline.html">Sparkline</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                                <span class="icon-holder">
-                                    <i class="mdi mdi-map-marker-outline"></i>
-                                </span>
-                    <span class="title">Map</span>
-                    <span class="arrow">
-                                    <i class="mdi mdi-chevron-right"></i>
-                                </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="google-map.html">Google Map</a>
-                    </li>
-                    <li>
-                        <a href="vector-map.html">Vector Map</a>
-                    </li>
-                </ul>
-            </li>
+            {{--<li class="nav-item dropdown">--}}
+                {{--<a class="dropdown-toggle" href="javascript:void(0);">--}}
+                                {{--<span class="icon-holder">--}}
+                                    {{--<i class="mdi mdi-tune-vertical"></i>--}}
+                                {{--</span>--}}
+                    {{--<span class="title">Tables</span>--}}
+                    {{--<span class="arrow">--}}
+                                    {{--<i class="mdi mdi-chevron-right"></i>--}}
+                                {{--</span>--}}
+                {{--</a>--}}
+                {{--<ul class="dropdown-menu">--}}
+                    {{--<li>--}}
+                        {{--<a href="basic-table.html">Basic Table</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="data-table.html">Data Table</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item dropdown">--}}
+                {{--<a class="dropdown-toggle" href="javascript:void(0);">--}}
+                                {{--<span class="icon-holder">--}}
+                                    {{--<i class="mdi mdi-chart-donut"></i>--}}
+                                {{--</span>--}}
+                    {{--<span class="title">Charts</span>--}}
+                    {{--<span class="arrow">--}}
+                                    {{--<i class="mdi mdi-chevron-right"></i>--}}
+                                {{--</span>--}}
+                {{--</a>--}}
+                {{--<ul class="dropdown-menu">--}}
+                    {{--<li>--}}
+                        {{--<a href="chartist.html">Chartist</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="chartjs.html">ChartJs</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="sparkline.html">Sparkline</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item dropdown">--}}
+                {{--<a class="dropdown-toggle" href="javascript:void(0);">--}}
+                                {{--<span class="icon-holder">--}}
+                                    {{--<i class="mdi mdi-map-marker-outline"></i>--}}
+                                {{--</span>--}}
+                    {{--<span class="title">Map</span>--}}
+                    {{--<span class="arrow">--}}
+                                    {{--<i class="mdi mdi-chevron-right"></i>--}}
+                                {{--</span>--}}
+                {{--</a>--}}
+                {{--<ul class="dropdown-menu">--}}
+                    {{--<li>--}}
+                        {{--<a href="google-map.html">Google Map</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="vector-map.html">Vector Map</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
         </ul>
     </div>
 </div>

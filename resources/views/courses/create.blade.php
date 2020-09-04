@@ -2,7 +2,7 @@
 @section('content')
     <div class="container col-md-8 col-md-offset-2">
         <div class="well well bs-component">
-            <form class="form-horizontal" method="post">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
                 @foreach ($errors->all() as $error)
                     <p class="alert	alert-danger">{{ $error }}</p>
                 @endforeach
@@ -34,8 +34,7 @@
                     </div>
                     @foreach ($categories as $category)
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" id="category_id" name="category_id[]"
-                                   value=" {{ $category->id }} ">
+                            <input type="checkbox" id="category_id" name="category_id[]" value=" {{ $category->id }} ">
                             <label class="custom-control-label" for="customCheck1">{{ $category->name }}</label>
                         </div>
                     @endforeach
@@ -43,6 +42,12 @@
                         <label for="name" class="col-lg-2 control-label">Price</label>
                         <div class="col-lg-10">
                             <input type="number" step="0.01" class="form-control" id="price" name="price">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="image" class="col-lg-2 control-label">Image</label>
+                        <div class="col-lg-10">
+                            <input type="file" class="form-control" name="image">
                         </div>
                     </div>
                     <div class="form-group">
@@ -55,5 +60,4 @@
             </form>
         </div>
     </div>
-
 @endsection

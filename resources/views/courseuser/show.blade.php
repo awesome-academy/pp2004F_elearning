@@ -9,14 +9,18 @@
             </div>
         </div>
     </div>
-
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <section class="shop-details-area ptb-100">
         <div class="container">
             <div class="shop-details">
                 <div class="row">
                     <div class="col-lg-5 col-md-12">
                         <div class="product-img">
-                            <img src="assets/img/shop-details.jpg" alt="shop">
+                            <img src="{{ url('images/'.$course->image) }}" alt="shop">
                         </div>
                     </div>
 
@@ -26,23 +30,16 @@
                             <div class="price">
                                 <h4>{{$course->price}}</h4>
                             </div>
-
-                            <p>{{$course->description}}</p>
-
-                            <form>
-                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            <p>{!! $course->description !!}</p>
+                            <form action="{{ route('cart.store', $id = $course->id) }}" method="post">
+                                {!! csrf_field() !!}
+                                <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                <button type="submit" class="btn btn-primary"> Add to Cart</button>
                             </form>
                             <div class="category">
                                 <span>Category:</span>
-                                <a href="#">{{$categories->name}}</a>
+                                {{$categories->name}}
                             </div>
-
-                            <ul>
-                                <li><a href="#" class="icofont-facebook"></a></li>
-                                <li><a href="#" class="icofont-twitter"></a></li>
-                                <li><a href="#" class="icofont-instagram"></a></li>
-                                <li><a href="#" class="icofont-linkedin"></a></li>
-                            </ul>
                         </div>
                     </div>
 

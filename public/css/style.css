@@ -32,3 +32,18 @@
 .exam-submit{
     margin-top: 20px;
 }
+
+.dropdown{
+    position: relative;
+}
+
+.btn-fix{
+    position: absolute;
+    top: -50px;
+    right: 0;
+}
+
+.pagination-fix{
+    display: table;
+    margin: 20px auto;
+}

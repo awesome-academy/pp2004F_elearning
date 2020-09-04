@@ -516,5 +516,19 @@
 <script src="{{asset('/admin/vendor/chart.js/dist/Chart.min.js')}}"></script>
 <script src="{{asset('/admin/vendor/jquery.sparkline/jquery.sparkline.min.js')}}"></script>
 <script src="{{asset('/admin/js/dashboard/default.js')}}"></script>
+<script src="{{asset('/tinymce/tinymce.min.js')}}"></script>
 <script src="{{asset('/admin/js/image.js')}}"></script>
+<script>
+    tinymce.init({
+        selector: '#content',
+        toolbar: [
+            'undo redo | bold italic underline | fontselect fontsizeselect',
+            'forecolor backcolor | alignleft aligncenter alignright alignfull | numlist bullist outdent indent'
+        ],
+        valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li',
+        valid_styles: {
+            '*': 'font-size,font-family,color,text-decoration,text-align'
+        },
+    });
+</script>
 </html>

@@ -2,9 +2,9 @@
 @section('content')
     <div class="container col-md-6 col-md-offset-3">
         <div class="well well bs-component">
-            <form class="form-horizontal" method="post">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
                 @foreach ($errors->all() as	$error)
-                    <p class="alert alert-danger">{{ $error	}}</p>
+                    <p class="alert alert-danger">{{ $error}}</p>
                 @endforeach
                 @if (session('status'))
                     <div class="alert alert-success">
@@ -24,8 +24,8 @@
                     <div class="form-group">
                         <label for="name" class="col-lg-2 control-label">Description</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" id="description" placeholder="Description"
-                                   name="description" value="{{ $course->description }}">
+                            <textarea type="text" class="form-control" id="content" placeholder="Description"
+                                      name="description" rows="10"></textarea>
                         </div>
                     </div>
                     @foreach ($categories as $category)
@@ -40,6 +40,12 @@
                         <div class="col-lg-10">
                             <input type="text" step="0.01" class="form-control" id="price" placeholder="Price"
                                    name="price" value="{{ $course->price }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="image" class="col-lg-2 control-label">Image</label>
+                        <div class="col-lg-10">
+                            <input type="file" class="form-control" id="image" name="image">
                         </div>
                     </div>
                     <div class="form-group">

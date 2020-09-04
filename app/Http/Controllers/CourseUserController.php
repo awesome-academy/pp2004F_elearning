@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
 
+
 class CourseUserController extends Controller
 {
     public function index()
@@ -24,7 +25,8 @@ class CourseUserController extends Controller
             $categoryName = $categories->where('name', request()->category)->first()->name;
         } 
         else {
-            $courses = Course::all();
+            //$courses = Course::all()->simplePaginate(1);
+            $courses=DB::table('courses')->paginate(4);
             $categories = Category::all();
             $categoryName = 'All course';
         }
@@ -117,6 +119,13 @@ class CourseUserController extends Controller
         $order->user_id = $request->user_id;
         $order->amount = $request->amount;
         $order->status = 1;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->getClientOriginalExtension();
+            $name = time() . "." . $path;
+            $image->move('images', $name);
+            $order->image = $name;
+        }
         $order->save();
         $order->courses()->attach($request->course_id);
         $cart = Cart::whereId($request->cart_id);
