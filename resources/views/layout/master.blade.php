@@ -66,8 +66,48 @@
 <script src="{{asset('assets/js/form-validator.min.js')}}"></script>
 <!-- Contact Form Min JS -->
 <script src="{{asset('assets/js/contact-form-script.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
 <!-- Main JS -->
 <script src="{{asset('assets/js/main.js')}}"></script>
+
+<script>
+    $(document).ready(function($) {
+        var engine = new Bloodhound({
+            remote: {
+                url: '/searchCourse?value=%QUERY%',
+                wildcard: '%QUERY%'
+            },
+            datumTokenizer: Bloodhound.tokenizers.whitespace('value'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace
+        });
+
+        $(".search-input").typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        }, [
+            {
+                source: engine.ttAdapter(),
+                name: 'teacher-name',
+                display: function(data) {
+                    return data.name;
+                },
+                templates: {
+                    empty: [
+                        '<div class="header-title">Name</div><div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
+                    ],
+                    header: [
+                        '<div class="header-title">Name</div><div class="list-group search-results-dropdown"></div>'
+                    ],
+                    suggestion: function (data) {
+                        return '<a href="/course/' + data.id + '" class="list-group-item">' + data.name + '</a>';
+                    }
+                }
+            },
+        ]);
+    });
+</script>
+
 </body>
 
 <!-- Mirrored from envytheme.com/tf-demo/edufield/index-default.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Dec 2018 19:42:04 GMT -->

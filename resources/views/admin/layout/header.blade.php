@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="search-input">
-                <input class="form-control" type="text" placeholder="Type to search...">
+                <input class="form-control search-input" type="text" placeholder="Type to search..." id="name" autocomplete="off">
                 <div class="search-predict">
                     <div class="search-wrapper scrollable">
                         <div class="p-v-10">
@@ -44,63 +44,9 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li class="list-item">
-                                    <a href="javascript:void(0);" class="media-hover p-h-20">
-                                        <div class="media-img">
-                                            <div class="icon-avatar bg-info">
-                                                <i class="mdi mdi-file-outline"></i>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <span class="title p-t-10">Mockup.doc</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-item">
-                                    <a href="javascript:void(0);" class="media-hover p-h-20">
-                                        <div class="media-img">
-                                            <div class="icon-avatar bg-danger">
-                                                <i class="mdi mdi-file-outline"></i>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <span class="title p-t-10">Document.pdf</span>
-                                        </div>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
-                        <div class="m-h-20 border top"></div>
-                        <div class="p-v-10">
-                                        <span class="display-block m-v-5 p-h-20 text-gray">
-                                            <i class="ti-user p-r-5"></i>
-                                            <span>Members</span>
-                                        </span>
-                            <ul class="list-media">
-                                <li class="list-item">
-                                    <a href="javascript:void(0);"
-                                       class="conversation-toggler media-hover p-h-20">
-                                        <div class="media-img">
-                                            <img src="assets/images/avatars/thumb-3.jpg" alt="">
-                                        </div>
-                                        <div class="info">
-                                            <span class="title p-t-10">Debra Stewart</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-item">
-                                    <a href="javascript:void(0);"
-                                       class="conversation-toggler media-hover p-h-20">
-                                        <div class="media-img">
-                                            <img src="assets/images/avatars/thumb-5.jpg" alt="">
-                                        </div>
-                                        <div class="info">
-                                            <span class="title p-t-10">Jane Hunt</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+
                     </div>
                     <div class="search-footer">
                         <span>You are Searching for '<b class="text-dark"><span class="serach-text-bind"></span></b>'</span>
