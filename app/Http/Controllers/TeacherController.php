@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Repository\TeacherRepositoryInterface;
+
 class TeacherController extends Controller
 {
     private $teacherRepository;
@@ -17,7 +19,7 @@ class TeacherController extends Controller
     public function index()
     {
         $teachers = $this->teacherRepository->all();
-        return view('teachers.index', compact('teachers')) ;
+        return view('teachers.index', compact('teachers'));
     }
 
     public function create()
@@ -89,4 +91,9 @@ class TeacherController extends Controller
         return redirect('teachers');
     }
 
+    public function search(Request $request)
+    {
+        $teachers = Teacher::where('name', 'like', '%'.$request->value.'%')->get();
+        return response()->json($teachers);
+    }
 }

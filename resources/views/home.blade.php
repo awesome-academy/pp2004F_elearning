@@ -20,7 +20,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua.</p>
                         <form>
-                            <input type="text" class="form-control" placeholder="Search courses...">
+                            <input type="text" class="form-control search-input" placeholder="Search courses..." id="name" autocomplete="off">
                             <button type="submit" class="btn btn-primary">Search</button>
                         </form>
                     </div>
