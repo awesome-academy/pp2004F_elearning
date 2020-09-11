@@ -30,6 +30,7 @@
                                 <li><a href="{{route('cart')}}"> my cart</a></li>
                                 <li><a href="{{route('userOrder')}}">my order</a></li>
                                 <li><a href="{{route('mycourse.index')}}">my course</a></li>
+                                <li><a href="{{route('myresult')}}">my result</a></li>
                                 <li><a href="{{route('logout')}}">Logout</a></li>
                             @else
                                 <li><a href="{{route('login-form')}}">Login</a></li>

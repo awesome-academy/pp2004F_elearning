@@ -132,5 +132,4 @@ class CourseUserController extends Controller
         $cart->delete();
         return redirect()->route('courseuser.index')->with('status', 'Your order has been save! Plz pay money!!');
     }
-
 }

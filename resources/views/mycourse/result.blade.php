@@ -25,48 +25,49 @@
                     <form method="post">
                         @csrf
                         @foreach($questions as $question)
-                            <h4> {{ $question->content }} </h4>
+                            <h4 class=""> {!! $question->content !!}  </h4>
                             @if($questionanswers[$question->id]['status'] == 1)
                                 @foreach($question->answers as $answer)
                                     <div class="form-check">
                                         @if($questionanswers[$question->id]['answer_id'] == $answer->id)
                                             <input class="form-check-input" type="radio"
                                                    name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
-                                                   value="{{ $answer->id }}" checked>
+                                                   value="{{ $answer->id }}" checked disabled>
                                             <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                                {{ $answer->content }}
+                                                {!! $answer->content !!}
                                             </label>
                                         @else
                                             <input class="form-check-input" type="radio"
                                                    name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
-                                                   value="{{ $answer->id }}">
+                                                   value="{{ $answer->id }}" disabled>
                                             <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                                {{ $answer->content }}
+                                                {!! $answer->content !!}
                                             </label>
                                         @endif
                                     </div>
                                 @endforeach
-                                <p>Right</p>
+                                <span class="check-exam check-right">Right</span>
                             @else
                                 @foreach($question->answers as $answer)
                                     <div class="form-check">
                                         @if($questionanswers[$question->id]['answer_id'] == $answer->id)
                                             <input class="form-check-input" type="radio"
                                                    name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
-                                                   value="{{ $answer->id }}" checked>
+                                                   value="{{ $answer->id }}" checked disabled>
                                             <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                                {{ $answer->content }}
+                                                {!! $answer->content !!}
                                             </label>
                                         @else
                                             <input class="form-check-input" type="radio"
                                                    name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
-                                                   value="{{ $answer->id }}">
+                                                   value="{{ $answer->id }}" disabled>
                                             <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                                {{ $answer->content }}
+                                                {!! $answer->content !!}
                                             </label>
                                         @endif
                                     </div>
                                 @endforeach
+                                <span class="check-exam check-wrong">Wrong</span>
                             @endif
                         @endforeach
                     </form>

@@ -1,22 +1,27 @@
-@extends('master')
+@extends('layout.master')
 @section('content')
-<div class="container col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h2> My exam results </h2>
+    <div class="page-title">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <h2> My exam results </h2>
+                </div>
+            </div>
         </div>
-        @if ($results->isEmpty())
-            <p> There is no results.</p>
-        @else
-             <table class="table">
+    </div>
+    @if ($results->isEmpty())
+        <p> There is no results.</p>
+    @else
+        <div class="container">
+            <table class="table">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Lesson</th>
-                        <th>Course</th>
-                        <th>Score</th>
-                        <th>Date</th>
-                    </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Lesson</th>
+                    <th>Course</th>
+                    <th>Score</th>
+                    <th>Date</th>
+                </tr>
                 </thead>
                 <tbody>
                 @foreach($results as $result)
@@ -32,7 +37,6 @@
                 @endforeach
                 </tbody>
             </table>
-        @endif
-    </div>
-</div>
+            @endif
+        </div>
 @endsection
