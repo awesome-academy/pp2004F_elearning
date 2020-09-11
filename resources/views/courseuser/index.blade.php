@@ -64,7 +64,7 @@
                     </div>
                 @endforeach
                 <div class="pagination-fix">
-                    {{$courses->links()}}
+
                 </div>
             </div>
         </div>

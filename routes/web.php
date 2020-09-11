@@ -133,4 +133,5 @@ Route::post('logo/edit/{id}', 'LogoController@update')->name('logoUpdate');
 
 Route::get('search', 'TeacherController@search')->name('searchTeacher');
 Route::get('searchCourse', 'SearchController@searchCourse');
+Route::get('result', 'SearchController@showCourses')->name('showResult');
 

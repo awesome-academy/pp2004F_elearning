@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="lesson_id" class="col-lg-2 control-label">lesson_id</label>
+                <label for="lesson_id" class="col-lg-2 control-label">lesson</label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="lesson_id" name="lesson_id" value="{{ $question->lesson_id }}">
                 </div>

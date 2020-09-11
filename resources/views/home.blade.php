@@ -17,10 +17,9 @@
                 <div class="container">
                     <div class="home-content">
                         <h1>Learn a new skill from online courses</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        <form>
-                            <input type="text" class="form-control search-input" placeholder="Search courses..." id="name" autocomplete="off">
+                        <form action="{{route('showResult')}}" method="post">
+                            @method('get')
+                            <input type="text" class="form-control search" placeholder="Search courses...">
                             <button type="submit" class="btn btn-primary">Search</button>
                         </form>
                     </div>
@@ -31,26 +30,16 @@
         <!-- End Main Banner Area -->
 
         @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-        @endif
-        
-
-
-        <!-- Start Popular Courses Area -->
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+    @endif
+    <!-- Start Popular Courses Area -->
         <section class="popular-courses-area ptb-100">
 
             <div class="top-divider"></div>
 
             <div class="container">
-                <div class="section-title">
-                    <h3>Popular Courses</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco . </p>
-                </div>
-
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="single-courses-item">

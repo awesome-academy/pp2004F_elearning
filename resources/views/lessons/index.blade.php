@@ -18,9 +18,9 @@
                     </thead>
                     <tbody>
 
-                    @foreach($lessons as $key => $lesson)
+                    @foreach($lessons as $lesson)
                         <tr>
-                            <td>{{$lessons->firstItem()+$key}}</td>
+                            <td>{{ $lesson->id }}</td>
                             <td>
                                 <a href="{!! action('LessonController@edit', $lesson->id) !!}">{{ $lesson->name }} </a>
                             </td>

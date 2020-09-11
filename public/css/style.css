@@ -14,36 +14,61 @@
     padding: 50px 0;
 }
 
-.single-courses-item{
+.single-courses-item {
     position: relative;
 }
 
-.price{
+.price {
     position: absolute;
     right: 15px;
     bottom: 25px;
 }
 
-.checkout-cart{
+.checkout-cart {
     display: table;
     margin: 50px auto 0;
 }
 
-.exam-submit{
+.exam-submit {
     margin-top: 20px;
 }
 
-.dropdown{
+.dropdown {
     position: relative;
 }
 
-.btn-fix{
+.btn-fix {
     position: absolute;
     top: -50px;
     right: 0;
 }
 
-.pagination-fix{
+.pagination-fix {
     display: table;
     margin: 20px auto;
+}
+
+.twitter-typeahead {
+    width: 100%;
+}
+
+.tt-input {
+    width: 100%;
+}
+.check-exam{
+    padding: 5px;
+    font-size: 10px;
+    border: 1px;
+    border-radius: 10px;
+}
+
+.check-right{
+    background-color: #17a2b8;
+    color: white;
+
+}
+
+.check-wrong{
+    background-color: red;
+    color: white;
 }
