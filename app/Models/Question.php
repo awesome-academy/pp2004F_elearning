@@ -20,4 +20,9 @@ class Question extends Model
     {
         return $this->hasMany('App\Models\Answer');
     }
+
+    public function results()
+    {
+        return $this->belongToMany('App\Models\Result');
+    }
 }

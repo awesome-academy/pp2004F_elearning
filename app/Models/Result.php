@@ -25,4 +25,9 @@ class Result extends Model
     {
         return $this->belongsToMany('App\Models\Answer');
     }
+
+    public function questions()
+    {
+        return $this->belongsToMany('App\Models\Question');
+    }
 }
