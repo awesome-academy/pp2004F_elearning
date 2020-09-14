@@ -12,25 +12,29 @@
                     <h2> All questions </h2>
                 </div>
             </div>
-            @if ($questions->isEmpty())
-                <p> There is no question.</p>
-            @else
-                <form method="post">
-                    @csrf
-                    @foreach($questions as $question)
-                        <h4> {{ $question->content }} </h4>
-                                <input hidden type="radio" name="questions[{{ $question->id }}]" value=0 checked>
-                        @foreach($question->answers as $answer)
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="questions[{{ $question->id }}]"
-                                        id="answer-{{ $answer->id }}" value="{{ $answer->id }}">
-                                <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                        {{ $answer->content }}
-                                </label>
-                            </div>
-                        @endforeach
+        </div>
+    </div>
+    <div class="container">
+        @if ($questions->isEmpty())
+            <p> There is no question.</p>
+        @else
+            <form method="post">
+                @csrf
+                <?php $i=1; ?>
+                @foreach($questions as $question)
+                    <h4>{{$i++}} {!! $question->content !!}   </h4>
+                    <input hidden type="radio" name="questions[{{ $question->id }}]" value=0 checked>
+                    @foreach($question->answers as $answer)
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="questions[{{ $question->id }}]"
+                                   id="answer-{{ $answer->id }}" value="{{ $answer->id }}">
+                            <label class="form-check-label" for="answer-{{ $answer->id }}">
+                                {!!  $answer->content !!}
+                            </label>
+                        </div>
                     @endforeach
                 @endforeach
+
                 <div class="exam-submit">
                     <div class="form-group">
                         <button type="reset" class="btn btn-default">Cancel</button>
@@ -38,6 +42,6 @@
                     </div>
                 </div>
             </form>
-        </div>
+    </div>
     @endif
 @endsection
