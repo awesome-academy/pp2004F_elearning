@@ -115,29 +115,33 @@ class MyCourseController extends Controller
     {
         $answers = Answer::find(array_values($request->get('questions')));
         $answers_array_id = array_column(Answer::find(array_values($request->get('questions')))->toArray(), 'id');
-        //dd($answers_array_id);
         $result = $answers->sum('status');
-        $def = count($answers);
-        $questionanswers = $answers->mapWithKeys(function($answer) {
-            return [$answer->question_id => [
-                'answer_id' => $answer->id,
-                'status' => $answer->status,
-            ]];
-        })->toArray();
+        $def = count(array_keys($request->questions));
         $questions = Question::find(array_keys($request->get('questions')));
+        //dd($questions);
+        //dd(Answer::find(13)->status);
+        $questionanswers = $questions->mapWithKeys(function ($question) use($request) {
+            if (!$request->questions[$question->id] == 0) {
+                return [$question->id => ['answer_id' => $request->questions[$question->id],
+                'status' => Answer::find($request->questions[$question->id])->status]];
+            }
+            else {
+                return [$question->id => ['answer_id' => $request->questions[$question->id],
+                'status' => 0]];
+            }
+        });
+        //dd($questionanswers);
         $questions_array = Question::find(array_keys($request->get('questions')))->toArray();
         $questions_array_id = array_column($questions_array, 'id');
-        //dd($questions_array_id[0]);
         $question = Question::whereId($questions_array_id[0])->first();
-        //dd($question);
         $lesson = $question->lesson()->first();
-        //dd($lesson);
         $score = "$result/$def";
         $userresult = new Result;
         $userresult->user_id = Auth::id();
         $userresult->lesson_id =  $lesson->id;
         $userresult->result = "$result/$def";
         $userresult->save();
+        $userresult->questions()->attach($questions_array_id);
         $userresult->answers()->attach($answers_array_id);
         return view('mycourse.result', compact('questions', 'questionanswers', 'score'))->with('status', "Your score is $result/$def");  
     }
@@ -169,7 +173,21 @@ class MyCourseController extends Controller
             }
             else {
                 $answers = $result->answers()->get();
-                return view('mycourse.myresultdetail', compact('answers', 'result'));
+                $answers_array_id = array_column($answers->toArray(), 'id');
+                $questions = $result->questions()->get();
+                $questionanswers = $questions->mapWithKeys(function($question) use($answers_array_id) {
+                    $abc = array_values(array_intersect(array_column($question->answers()->get()->toArray(), 'id'), $answers_array_id));
+                    //dd($abc);
+                    if ($abc == null ) {
+                        return [$question->id => ['answer_id' => 0,
+                        'status' => 0]];
+                    }
+                    else {
+                        return [$question->id => ['answer_id' => ($abc[0]),
+                         'status' => Answer::whereId(array_intersect(array_column($question->answers()->get()->toArray(), 'id'), $answers_array_id))->first()->status]];
+                    }
+                });
+                return view('mycourse.myresultdetail', compact('questions','questionanswers', 'result'));
             }
         }
     }

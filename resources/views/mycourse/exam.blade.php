@@ -12,33 +12,23 @@
                     <h2> All questions </h2>
                 </div>
             </div>
-        </div>
-    </div>
-    @if ($questions->isEmpty())
-        <p> There is no question.</p>
-    @else
-        <div class="container">
-
-            <form method="post">
-                @csrf
-                @foreach($questions as $question)
-                    <h4> {!! $question->content !!} </h4>
-                    @foreach($question->answers as $answer)
-                        <div class="form-check">
-                            @if(old("questions.$question->id") == $answer->id)
+            @if ($questions->isEmpty())
+                <p> There is no question.</p>
+            @else
+                <form method="post">
+                    @csrf
+                    @foreach($questions as $question)
+                        <h4> {{ $question->content }} </h4>
+                                <input hidden type="radio" name="questions[{{ $question->id }}]" value=0 checked>
+                        @foreach($question->answers as $answer)
+                            <div class="form-check">
                                 <input class="form-check-input" type="radio" name="questions[{{ $question->id }}]"
-                                       id="answer-{{ $answer->id }}" value="{{ $answer->id }}" checked>
+                                        id="answer-{{ $answer->id }}" value="{{ $answer->id }}">
                                 <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                    {!! $answer->content !!}
+                                        {{ $answer->content }}
                                 </label>
-                            @else
-                                <input class="form-check-input" type="radio" name="questions[{{ $question->id }}]"
-                                       id="answer-{{ $answer->id }}" value="{{ $answer->id }}">
-                                <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                    {!! $answer->content !!}
-                                </label>
-                            @endif
-                        </div>
+                            </div>
+                        @endforeach
                     @endforeach
                 @endforeach
                 <div class="exam-submit">

@@ -19,43 +19,50 @@
             <div class="panel-heading">
                 <h2> Your score is {{ $result->result }} </h2>
                 <h2> Questions </h2>
+                @if ($questions->isEmpty())
+                    <p> There is no question.</p>
+                @else
                     <form method="post">
                         @csrf
-                        @foreach($answers as $answer)
-                            <h4> {!! $answer->question->content  !!} </h4>
-                            @if($answer->status == 1)
-                                @foreach($answer->question->answers as $answer_temp)
+                        @foreach($questions as $question)
+                            <h4> {{ $question->content }} </h4>
+                            @if($questionanswers[$question->id]['status'] == 1)
+                                @foreach($question->answers as $answer)
                                     <div class="form-check">
-                                        @if($answer_temp->id == $answer->id)
-                                            <input class="form-check-input" type="radio" id="{{ $answer_temp->id }}"
-                                                   value="{{ $answer_temp->id }}" checked disabled>
-                                            <label class="form-check-label" for="{{ $answer_temp->id }}">
-                                                {!! $answer_temp->content !!}
+                                        @if($questionanswers[$question->id]['answer_id'] == $answer->id)
+                                            <input class="form-check-input" type="radio"
+                                                   name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
+                                                   value="{{ $answer->id }}" checked disabled>
+                                            <label class="form-check-label" for="answer-{{ $answer->id }}">
+                                                {{ $answer->content }}
                                             </label>
                                         @else
-                                            <input class="form-check-input" type="radio" id="{{ $answer_temp->id }}"
-                                                   value="{{ $answer_temp->id }}" disabled>
-                                            <label class="form-check-label" for="{{ $answer_temp->id }}">
-                                                {!! $answer_temp->content !!}
+                                            <input class="form-check-input" type="radio"
+                                                   name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
+                                                   value="{{ $answer->id }}" disabled>
+                                            <label class="form-check-label" for="answer-{{ $answer->id }}">
+                                                {{ $answer->content }}
                                             </label>
                                         @endif
                                     </div>
                                 @endforeach
                                 <span class="check-exam check-right">Right</span>
                             @else
-                                @foreach($answer->question->answers as $answer_temp)
+                                @foreach($question->answers as $answer)
                                     <div class="form-check">
-                                        @if($answer_temp->id == $answer->id)
-                                            <input class="form-check-input" type="radio" id="{{ $answer_temp->id }}"
-                                                   value="{{ $answer_temp->id }}" checked disabled>
-                                            <label class="form-check-label" for="{{ $answer_temp->id }}">
-                                                {!! $answer_temp->content !!}
+                                        @if($questionanswers[$question->id]['answer_id'] == $answer->id)
+                                            <input class="form-check-input" type="radio"
+                                                   name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
+                                                   value="{{ $answer->id }}" checked disabled>
+                                            <label class="form-check-label" for="answer-{{ $answer->id }}">
+                                                {{ $answer->content }}
                                             </label>
                                         @else
-                                            <input class="form-check-input" type="radio" id="{{ $answer_temp->id }}"
-                                                   value="{{ $answer_temp->id }}" disabled>
-                                            <label class="form-check-label" for="{{ $answer_temp->id }}">
-                                                {!! $answer_temp->content !!}
+                                            <input class="form-check-input" type="radio"
+                                                   name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
+                                                   value="{{ $answer->id }}" disabled>
+                                            <label class="form-check-label" for="answer-{{ $answer->id }}">
+                                                {{ $answer->content }}
                                             </label>
                                         @endif
                                     </div>
@@ -63,8 +70,9 @@
                                 <span class="check-exam check-wrong">Wrong</span>
                             @endif
                         @endforeach
-                </form>
-            </div>
+                    </form>
+                @endif
+             </div>
         </div>
     </div>
 @endsection
