@@ -28,8 +28,8 @@
                     @foreach($courses as $course)
                     <div class="col-lg-4 col-md-6">
                         <div class="single-courses-item">
-                            <div class="courses-img">
-                                <img src="assets/img/course-one.jpg" alt="course">
+                            <div class="courses-img ">
+                                <img src="{{ url('images/'.$course->image)}}" alt="course">
                             </div>
 
                             <div class="courses-content">

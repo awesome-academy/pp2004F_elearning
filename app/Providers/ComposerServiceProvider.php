@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Models\Teacher;
+use Illuminate\Support\Facades\DB;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -34,9 +34,8 @@ class ComposerServiceProvider extends ServiceProvider
             'App\Http\ViewComposers\LogoComposer'
         );
 
-        view()->composer('home', function (){
-            $courses=Teacher::all();
-            
+        view()->composer('home', function ($view){
+            $view->with('courses', DB::table('courses')->take(1)->get());
         });
     }
 }
