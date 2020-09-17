@@ -4,43 +4,28 @@
     <div id="search-area">
         <button type="button" class="close">×</button>
         <form>
-            <input type="search" value="" placeholder="Search Kewword(s)">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <input type="search" value="" placeholder="Search Kewword(s)" id="search">
         </form>
     </div>
     <!-- End Search Popup Area -->
 
-    <!-- Start Main Banner Area -->
     <div class="main-home-area">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
                     <div class="home-content">
                         <h1>Learn a new skill from online courses</h1>
-                        <form action="{{route('showResult')}}" method="post">
-                            @method('get')
-                            <input type="text" class="form-control search" placeholder="Search courses...">
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- End Main Banner Area -->
-
-        @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-    @endif
-    <!-- Start Popular Courses Area -->
+        <!-- Start Popular Courses Area -->
         <section class="popular-courses-area ptb-100">
-
             <div class="top-divider"></div>
-
             <div class="container">
                 <div class="row">
+                    @foreach($courses as $course)
                     <div class="col-lg-4 col-md-6">
                         <div class="single-courses-item">
                             <div class="courses-img">
@@ -48,14 +33,7 @@
                             </div>
 
                             <div class="courses-content">
-                                <h3><a href="#">Machine Learning</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
+                                <h3><a href="#">{{$course->name}}</a></h3>
                             </div>
 
                             <div class="courses-content-bottom">
@@ -64,127 +42,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-courses-item">
-                            <div class="courses-img">
-                                <img src="assets/img/course-two.jpg" alt="course">
-                            </div>
-
-                            <div class="courses-content">
-                                <h3><a href="#">Learning Analytics Course</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
-                            </div>
-
-                            <div class="courses-content-bottom">
-                                <h4><i class="icofont-ui-user"></i> 120 Students</h4>
-                                <h4 class="price"><span>$140</span> $120</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-courses-item">
-                            <div class="courses-img">
-                                <img src="assets/img/course-three.jpg" alt="course">
-                            </div>
-
-                            <div class="courses-content">
-                                <h3><a href="#">Consulting Workshop</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
-                            </div>
-
-                            <div class="courses-content-bottom">
-                                <h4><i class="icofont-ui-user"></i> 120 Students</h4>
-                                <h4 class="price">$120</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-courses-item">
-                            <div class="courses-img">
-                                <img src="assets/img/course-four.jpg" alt="course">
-                            </div>
-
-                            <div class="courses-content">
-                                <h3><a href="#">Life Coaching</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
-                            </div>
-
-                            <div class="courses-content-bottom">
-                                <h4><i class="icofont-ui-user"></i> 120 Students</h4>
-                                <h4 class="price">$120</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-courses-item">
-                            <div class="courses-img">
-                                <img src="assets/img/course-five.jpg" alt="course">
-                            </div>
-
-                            <div class="courses-content">
-                                <h3><a href="#">Mathematical Coaching</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
-                            </div>
-
-                            <div class="courses-content-bottom">
-                                <h4><i class="icofont-ui-user"></i> 120 Students</h4>
-                                <h4 class="price">$120</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-courses-item">
-                            <div class="courses-img">
-                                <img src="assets/img/course-six.jpg" alt="course">
-                            </div>
-
-                            <div class="courses-content">
-                                <h3><a href="#">Fitness Instruction</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
-                            </div>
-
-                            <div class="courses-content-bottom">
-                                <h4><i class="icofont-ui-user"></i> 120 Students</h4>
-                                <h4 class="price"><span>$140</span> $120</h4>
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
                     <div class="col-lg-12 col-md-12">
                         <div class="view-all text-center">
                             <a href="#" class="btn btn-primary">View All Courses <i

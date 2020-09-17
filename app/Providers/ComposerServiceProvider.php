@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Teacher;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -32,5 +33,10 @@ class ComposerServiceProvider extends ServiceProvider
             'layout.header',
             'App\Http\ViewComposers\LogoComposer'
         );
+
+        view()->composer('home', function (){
+            $courses=Teacher::all();
+            
+        });
     }
 }
