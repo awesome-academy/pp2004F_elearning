@@ -34,8 +34,12 @@ class ComposerServiceProvider extends ServiceProvider
             'App\Http\ViewComposers\LogoComposer'
         );
 
-        view()->composer('home', function ($view){
-            $view->with('courses', DB::table('courses')->take(1)->get());
+        view()->composer('home', function ($view) {
+            $view->with('courses', DB::table('courses')->take(6)->get());
+        });
+
+        view()->composer('home', function ($view) {
+            $view->with('teachers', DB::table('teachers')->take(6)->get());
         });
     }
 }
