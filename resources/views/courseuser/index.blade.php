@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('content')
-    <div class="page-title">
+    <div class="page-title" style="background: url('{{asset('images/home-bg1.jpg')}}')">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
@@ -43,7 +43,7 @@
                 @foreach($courses as $course)
                     <div class="col-lg-3 col-md-6">
                         <div class="single-product">
-                            <div class="product-img">
+                            <div class="product-img img--item">
                                 <img src="{{ url('images/'.$course->image) }}" alt="shop">
 
                                 <a href="#" class="quick-view" data-toggle="modal" data-target="#productModal"><i
@@ -53,7 +53,7 @@
                                 <h3>
                                     <a href="{!! action('CourseUserController@show', $course->id) !!}">{{ $course->name }}</a>
                                 </h3>
-                                <h4 class="price">{{ $course->price}}</h4>
+                                <h4 class="course--price">{{ $course->price}}</h4>
                                 <form action="{{ route('cart.store', $id = $course->id) }}" method="post">
                                     {!! csrf_field() !!}
                                     <input type="hidden" name="course_id" value="{{ $course->id }}">
@@ -63,9 +63,6 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="pagination-fix">
-
-                </div>
             </div>
         </div>
     </section>
