@@ -18,12 +18,6 @@
     position: relative;
 }
 
-.price {
-    position: absolute;
-    right: 15px;
-    bottom: 25px;
-}
-
 .checkout-cart {
     display: table;
     margin: 50px auto 0;
@@ -55,20 +49,54 @@
 .tt-input {
     width: 100%;
 }
-.check-exam{
+
+.check-exam {
     padding: 5px;
     font-size: 10px;
     border: 1px;
     border-radius: 10px;
 }
 
-.check-right{
+.check-right {
     background-color: #17a2b8;
     color: white;
 
 }
 
-.check-wrong{
+.check-wrong {
     background-color: red;
     color: white;
+}
+
+.course--price {
+    margin: 0 0 10px 0;
+}
+
+.img--item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+h3 a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.check-submit{
+    display: table;
+    margin: 40px auto;
+}
+
+.form-exam{
+    margin-top: 50px;
+}
+
+.img--mycourse img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 }

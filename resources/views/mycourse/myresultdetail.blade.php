@@ -23,9 +23,10 @@
                     <p> There is no question.</p>
                 @else
                     <form method="post">
+                        <?php $i=1; ?>
                         @csrf
                         @foreach($questions as $question)
-                            <h4> {{ $question->content }} </h4>
+                            <h4>{{$i++}} {!! $question->content  !!} </h4>
                             @if($questionanswers[$question->id]['status'] == 1)
                                 @foreach($question->answers as $answer)
                                     <div class="form-check">
@@ -34,14 +35,14 @@
                                                    name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
                                                    value="{{ $answer->id }}" checked disabled>
                                             <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                                {{ $answer->content }}
+                                                {!! $answer->content !!}
                                             </label>
                                         @else
                                             <input class="form-check-input" type="radio"
                                                    name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
                                                    value="{{ $answer->id }}" disabled>
                                             <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                                {{ $answer->content }}
+                                                {!! $answer->content !!}
                                             </label>
                                         @endif
                                     </div>
@@ -55,14 +56,14 @@
                                                    name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
                                                    value="{{ $answer->id }}" checked disabled>
                                             <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                                {{ $answer->content }}
+                                                {!! $answer->content !!}
                                             </label>
                                         @else
                                             <input class="form-check-input" type="radio"
                                                    name="questions[{{ $question->id }}]" id="answer-{{ $answer->id }}"
                                                    value="{{ $answer->id }}" disabled>
                                             <label class="form-check-label" for="answer-{{ $answer->id }}">
-                                                {{ $answer->content }}
+                                                {!! $answer->content !!}
                                             </label>
                                         @endif
                                     </div>

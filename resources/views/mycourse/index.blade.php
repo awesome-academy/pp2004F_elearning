@@ -16,24 +16,32 @@
             {{ session('status') }}
         </div>
     @endif
-
-    <div class="classynav">
-        <ul>
-            <li><a href="{{ route('mycourse.index') }}" class="active">All courses</a></li>
-            @foreach ($categories as $category)
-                <li><a href="{{  route('mycourse.index', ['category' => $category->name]) }}"
-                       class="active">{{ $category->name }}</a></li>
-            @endforeach
-        </ul>
-    </div>
     <!-- Start Courses Area -->
     <section class="courses-area ptb-100">
         <div class="container">
+            <div class="woocommerce-shop-top">
+                <div class="dropdown">
+
+                    <!--Trigger-->
+                    <button class="btn btn-primary dropdown-toggle btn-fix" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">{{ $categoryName }}</button>
+
+                    <!--Config-->
+                    <div class="dropdown-menu dropdown-primary">
+                        <a class="dropdown-item" href="{{ route('mycourse.index') }}">All courses</a>
+                        @foreach ($categories as $category)
+                            <a class="dropdown-item"
+                               href="{{  route('mycourse.index', ['category' => $category->name]) }}">{{ $category->name }}</a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 @foreach($mycourses as $mycourse)
                     <div class="col-lg-4 col-md-6">
                         <div class="single-courses-item">
-                            <div class="courses-img">
+                            <div class="courses-img img--mycourse">
                                 <img src="{{ url('images/'.$mycourse->image) }}" alt="course">
                             </div>
 
