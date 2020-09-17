@@ -130,8 +130,6 @@ Route::post('logo/create', 'LogoController@store')->name('logoStore');
 Route::get('logo/edit/{id}', 'LogoController@edit')->name('logoEdit');
 Route::post('logo/edit/{id}', 'LogoController@update')->name('logoUpdate');
 
-
 Route::get('search', 'TeacherController@search')->name('searchTeacher');
 Route::get('searchCourse', 'SearchController@searchCourse');
 Route::get('result', 'SearchController@showCourses')->name('showResult');
-
